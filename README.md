@@ -1,13 +1,20 @@
-# *under development*
 # Computer Science Student
 
-### Education
-Computer Science
+#### Technical Skills: Python, SQL, Data Science and Algorithm
 
-### Work Experience
-Data scientist @ ABC company
-- big impact project 1!
-- big impact project 2!
+## Education
+- Secondary Schooling | New Standard Public School (_March 2020_)
+- B.tech, Computer Science | Galgotias University (_June 2025_)
 
-### Projects
-MarksPrediction
+## Project
+- Working on MarksPrediction Machine Learning Project
+
+## For Connection
+
+[<img align="left" alt="Abhishek Singh| LinkedIn" width="40px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin]
+[<img align="left" alt="Abhishek Singh | Twitter" width="40px" src="[https://img.icons8.com/fluent/48/000000/twitter.png](https://seeklogo.com/images/T/twitter-x-logo-0339F999CF-seeklogo.com.png?v=638264860180000000)" />][Twitter]
+
+[linkedin]: https://www.linkedin.com/in/abhishek8ingh
+
+
+[Twitter]: [https://www.twitter.com/lucifer_x007/](https://twitter.com/Abhishek8ingh)https://twitter.com/Abhishek8ingh
