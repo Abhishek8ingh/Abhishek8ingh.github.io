@@ -12,7 +12,7 @@
 ## For Connection
 
 [<img align="left" alt="Abhishek Singh| LinkedIn" width="40px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin]
-[<img align="left" alt="Abhishek Singh | Twitter" width="40px" src="[https://img.icons8.com/fluent/48/000000/twitter.png](https://seeklogo.com/images/T/twitter-x-logo-0339F999CF-seeklogo.com.png?v=638264860180000000)" />][Twitter]
+[<img align="left" alt="Abhishek Singh | Twitter" width="40px" src="[https://seeklogo.com/images/T/twitter-x-logo-0339F999CF-seeklogo.com.png" />][Twitter]
 
 [linkedin]: https://www.linkedin.com/in/abhishek8ingh
 
