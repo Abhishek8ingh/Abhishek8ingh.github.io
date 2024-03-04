@@ -1,4 +1,5 @@
-# Computer Science Stutend
+# *under development*
+# Computer Science Student
 
 ### Education
 Computer Science
