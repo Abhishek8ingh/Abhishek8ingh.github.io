@@ -4,7 +4,7 @@
 -💪 Learning Data Science and sharing it publicly
 
 #### Technical Skills: Python, SQL, Data Science and Algorithm
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGtnY3ptZHZnZTNwbjk5YnBlZXRuaXlkZmg3N2tsaHF3aGh0Y3VzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/coxQHKASG60HrHtvkt/giphy.gif" width="75"> <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGVrZ3ZoeWQ0bm9tajk1b3gyano2aGozNjgwMGprdnhpYmM3NGZpbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vISmwpBJUNYzukTnVx/giphy.gif" width="75"> <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXVhNWhtazlhOG9pNDRiZHA0azJybzBmMjY2cWoxN3lpendqb2dleiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7c8QeB0VMddFOuu4iR/200.webp" width="75"></h2>
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGtnY3ptZHZnZTNwbjk5YnBlZXRuaXlkZmg3N2tsaHF3aGh0Y3VzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/coxQHKASG60HrHtvkt/giphy.gif" width="75"> <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGVrZ3ZoeWQ0bm9tajk1b3gyano2aGozNjgwMGprdnhpYmM3NGZpbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vISmwpBJUNYzukTnVx/giphy.gif" width="75"> <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXVhNWhtazlhOG9pNDRiZHA0azJybzBmMjY2cWoxN3lpendqb2dleiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7c8QeB0VMddFOuu4iR/200.webp" width="75">
 
 ###
 
@@ -14,7 +14,7 @@
 
 
 
-## Education
+### Education
 - Secondary Schooling | New Standard Public School (_March 2020_)
 - B.tech, Computer Science | Galgotias University (_June 2025_)
 
