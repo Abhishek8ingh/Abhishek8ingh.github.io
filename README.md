@@ -11,4 +11,3 @@ Data scientist @ ABC company
 
 ### Projects
 MarksPrediction
-
