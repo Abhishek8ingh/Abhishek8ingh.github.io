@@ -11,4 +11,4 @@ Data scientist @ ABC company
 ### Projects
 MarksPrediction
 
-![Bike Study](/assets/MYimage.jpg)
+![Bike Study](/assets/[MYimage.jpg)
