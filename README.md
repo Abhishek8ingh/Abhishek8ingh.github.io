@@ -1,6 +1,6 @@
 <h2>हैलो वर्ल्ड! (Hello World!), I'm Abhishek Singh<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhkN3Rpa2c3cjliZ3AxZWszZ2pnMTUwZXQ3a3ZibDJyMzhkOW15cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HzPtbOKyBoBFsK4hyc/giphy.gif" width="60"></h2>
 
-#### 
+
 ●👨‍💻 I'm a Computer Science Student
 
 ●💪 Learning Data Science and sharing it publicly
