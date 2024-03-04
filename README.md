@@ -18,13 +18,23 @@
 ## Project
 - Working on MarksPrediction Machine Learning Project
 
+#  GitHub Stats
+
+![](https://github-readme-stats.vercel.app/api?username=abhishek8ingh&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=abhishek8ingh&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=abhishek8ingh&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
+
+
 ## For Connection
 
 [<img align="left" alt="Abhishek Singh| LinkedIn" width="50px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin]
 [<img align="left" alt="Abhishek Singh | Twitter" width="50px" src="https://img.icons8.com/fluent/48/000000/twitter.png" />][Twitter]
 [<img align="left" alt="Abhishek Singh | Mail" width="50px" src="https://img.icons8.com/fluent/48/000000/gmail.png" />][Mail]
 
+
+
+
 [linkedin]: https://www.linkedin.com/in/abhishek8ingh
 [Mail]: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=abhisheksinghmailid@gmail.com.com&su=SUBJECT&body=BODY&tf=1
-
 [Twitter]: https://twitter.com/Abhishek8ingh
