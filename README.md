@@ -22,7 +22,7 @@
 
 [<img align="left" alt="Abhishek Singh| LinkedIn" width="50px" src="https://img.icons8.com/color/48/000000/linkedin.png" />][linkedin]
 [<img align="left" alt="Abhishek Singh | Twitter" width="50px" src="https://img.icons8.com/fluent/48/000000/twitter.png" />][Twitter]
-[<img align="left" alt="Abhishek Singh | Mail" width="40px" src="https://img.icons8.com/fluent/48/000000/gmail.png" />][Mail]
+[<img align="left" alt="Abhishek Singh | Mail" width="50px" src="https://img.icons8.com/fluent/48/000000/gmail.png" />][Mail]
 
 [linkedin]: https://www.linkedin.com/in/abhishek8ingh
 [Mail]: https://mail.google.com/mail/u/0/?view=cm&fs=1&to=abhisheksinghmailid@gmail.com.com&su=SUBJECT&body=BODY&tf=1
