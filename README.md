@@ -16,7 +16,9 @@
 <img src="https://media3.giphy.com/media/Y4ak9Ki2GZCbJxAnJD/giphy.gif?cid=ecf05e47wbo73w75rv0kb0eda5y93yvys86uiz9dleifkpoo&ep=v1_gifs_related&rid=giphy.gif&ct=g" width="280">
 
 ## Project
-- Working on MarksPrediction Machine Learning Project
+- Loan Eligibility Prediction
+- Heart disease analyzer
+- MarksPrediction Machine Learning Project
 
 #  GitHub Stats
 
