@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Abhishek Singh - Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,15 +16,14 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c0a18;
-            /* Restored the correct, brighter background */
             background-image: linear-gradient(rgba(12, 10, 24, 0.6), rgba(12, 10, 24, 0.7)), url('https://images.unsplash.com/photo-1504333638930-c8787321eee0?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-attachment: fixed;
             color: #E5E7EB;
-            overflow: hidden; /* Prevent body scrollbar from interfering with animations */
+            overflow: hidden;
         }
         .section {
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -34,31 +33,44 @@
             padding: 2rem;
         }
         header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
+        
+        /* Pulse animation for latest tweet */
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
             50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
         }
-        .blinking-tweet { animation: pulse 3s infinite; }
+        .blinking-tweet { 
+            animation: pulse 3s infinite; 
+        }
+        
+        /* Bounce arrow */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-20px); }
             60% { transform: translateY(-10px); }
         }
-        .scroll-arrow-down { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; cursor: pointer; z-index: 50; }
-        .scroll-arrow-up { position: absolute; top: 6rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; cursor: pointer; z-index: 50; }
-        
-        /* Style for the name hover effect */
+        .scroll-arrow-down, .scroll-arrow-up {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 50;
+        }
+        .scroll-arrow-down { bottom: 2rem; }
+        .scroll-arrow-up { top: 6rem; }
+
+        /* Name hover effect */
         #name-logo span {
             transition: opacity 0.3s ease-in-out;
         }
-        /* Restored the elegant font for Namaste */
         .font-namaste {
             font-family: 'Tangerine', cursive;
-            font-size: 2.8rem; /* Slightly larger size */
+            font-size: 2.8rem;
             line-height: 1;
         }
-        
-        /* Alien eye blink animation */
+
+        /* Alien eye blink */
         @keyframes blink {
             0%, 90%, 100% { transform: scaleY(1); }
             95% { transform: scaleY(0.1); }
@@ -68,16 +80,16 @@
             transform-origin: center;
         }
 
-        /* Background UFO Animations */
+        /* UFO Animations */
         @keyframes fly-across {
             0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); }
             100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); }
         }
-         @keyframes fly-across-2 {
+        @keyframes fly-across-2 {
             0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); }
             100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); }
         }
-         @keyframes fly-across-3 {
+        @keyframes fly-across-3 {
             0% { transform: translateX(120vw) translateY(50vh) rotate(5deg) scale(0.9); }
             100% { transform: translateX(-20vw) translateY(60vh) rotate(-5deg) scale(0.9); }
         }
@@ -106,11 +118,30 @@
             opacity: 0.25;
             animation: fly-across 45s linear infinite;
         }
-        .ufo-2 { animation-name: fly-across-2; animation-duration: 60s; animation-delay: 5s; }
-        .ufo-3 { animation-name: fly-across-3; animation-duration: 75s; animation-delay: 10s; }
-        .ufo-4 { animation-name: fly-across-4; animation-duration: 55s; animation-delay: 15s; }
-        .ufo-5 { animation-name: fly-across-5; animation-duration: 85s; animation-delay: 20s; }
-        .ufo-6 { animation-name: fly-across-6; animation-duration: 95s; animation-delay: 25s; }
+        .ufo-2 { animation: fly-across-2 60s linear infinite; animation-delay: 5s; }
+        .ufo-3 { animation: fly-across-3 75s linear infinite; animation-delay: 10s; }
+        .ufo-4 { animation: fly-across-4 55s linear infinite; animation-delay: 15s; }
+        .ufo-5 { animation: fly-across-5 85s linear infinite; animation-delay: 20s; }
+        .ufo-6 { animation: fly-across-6 95s linear infinite; animation-delay: 25s; }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            .section {
+                padding-top: 8rem;
+                justify-content: flex-start;
+            }
+            .scroll-arrow-down, .scroll-arrow-up { opacity: 0.7; }
+            .blinking-tweet { display: none !important; }
+            header .container { flex-direction: column; gap: 1rem; }
+            nav { display: flex; width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+            .flex-shrink-0 { margin-bottom: 1rem; }
+        }
+        @media (max-width: 640px) {
+            .background-ufo { width: 10vw; min-width: 60px; }
+            .w-48, .h-48 { width: 120px; height: 120px; }
+            .text-4xl { font-size: 1.8rem; }
+            .text-5xl { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -133,10 +164,14 @@
 
     <!-- Social Links -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
-        <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 1024 1024"><path d="M512 0L52 128v768l460 128 460-128V128L512 0zM224 269.46L512 192l288 77.46v110.1L512 457.76 224 379.56V269.46zm576 481.08L512 828.74l-288-78.2V530.7l288 77.46 288-77.46v220.84z"/></svg></a>
+        <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg>
+        </a>
+        <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 1024 1024"><path d="M512 0L52 128v768l460 128 460-128V128L512 0zM224 269.46L512 192l288 77.46v110.1L512 457.76 224 379.56V269.46zm576 481.08L512 828.74l-288-78.2V530.7l288 77.46 288-77.46v220.84z"/></svg>
+        </a>
     </div>
-    
+
     <!-- Alien Mascot -->
     <div class="fixed bottom-4 left-4 z-50 w-20 h-20 opacity-90">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -150,168 +185,349 @@
 
     <!-- Background UFOs -->
     <div class="background-ufo">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g><defs><radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" /><stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" /></radialGradient></defs></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
+                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
+                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
+                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
+            </g>
+            <defs>
+                <radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" />
+                </radialGradient>
+            </defs>
+        </svg>
     </div>
     <div class="background-ufo ufo-2">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
+                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
+                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
+                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
+            </g>
+        </svg>
     </div>
     <div class="background-ufo ufo-3">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
+                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
+                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
+                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
+            </g>
+        </svg>
     </div>
-    <!-- New Scout Ships -->
     <div class="background-ufo ufo-4">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
+                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
+                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
+            </g>
+        </svg>
     </div>
     <div class="background-ufo ufo-5">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
+                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
+                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
+            </g>
+        </svg>
     </div>
     <div class="background-ufo ufo-6">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
+                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
+                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
+            </g>
+        </svg>
     </div>
 
-
     <main id="smooth-wrapper">
-      <div id="smooth-content">
-        <!-- Section 1: About Me -->
-        <section id="about" class="section">
-            <div class="container mx-auto w-full h-full flex items-center justify-center relative">
-                 <a href="#tweets" class="blinking-tweet hidden lg:block absolute top-24 right-8 w-56 bg-gray-900/50 border border-gray-700 rounded-lg p-4 text-center transition-transform hover:scale-105 backdrop-blur-sm">
-                    <h3 class="font-semibold text-white mb-2 text-sm">Latest Tweet</h3>
-                    <p class="text-gray-400 italic text-xs">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
-                    <span class="block text-blue-400 mt-3 text-xs">Click to see more</span>
+        <div id="smooth-content">
+            <!-- Section 1: About Me -->
+            <section id="about" class="section">
+                <div class="container mx-auto w-full h-full flex items-center justify-center relative">
+                    <!-- === LATEST TWEET FLOATING BOX (Fully Restored) === -->
+                    <a href="#tweets" class="blinking-tweet hidden lg:block absolute top-24 right-8 w-56 bg-gray-900/50 border border-gray-700 rounded-lg p-4 text-center transition-transform hover:scale-105 backdrop-blur-sm">
+                        <h3 class="font-semibold text-white mb-2 text-sm">Latest Tweet</h3>
+                        <p class="text-gray-400 italic text-xs">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
+                        <span class="block text-blue-400 mt-3 text-xs">Click to see more</span>
+                    </a>
+
+                    <!-- === MAIN ABOUT CONTENT === -->
+                    <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
+                        <div class="flex-shrink-0">
+                            <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
+                                <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                            <div class="text-gray-300 max-w-xl space-y-3 text-sm">
+                                <p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p>
+                                <p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#projects" class="scroll-arrow-down">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
                 </a>
-                <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
-                    <div class="flex-shrink-0">
-                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true">
+            </section>
+
+            <!-- Section 2: Projects -->
+            <section id="projects" class="section">
+                <a href="#about" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+                <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Project One</h3>
+                            <p class="text-gray-400">Coming Soon</p>
                         </div>
                     </div>
-                    <div class="text-center md:text-left">
-                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-                        <div class="text-gray-300 max-w-xl space-y-3 text-sm">
-                            <p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p>
-                            <p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Project Two</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Project Three</h3>
+                            <p class="text-gray-400">Coming Soon</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <a href="#projects" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
-        </section>
+                <a href="#blog" class="scroll-arrow-down">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </section>
 
-        <!-- Section 2: Projects -->
-        <section id="projects" class="section">
-            <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-            <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
-            </div>
-            <a href="#blog" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
-        </section>
-
-        <!-- Section 3: Blog -->
-        <section id="blog" class="section">
-            <a href="#projects" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-            <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
-            </div>
-            <a href="#research" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
-        </section>
-
-        <!-- Section 4: Research -->
-        <section id="research" class="section">
-            <a href="#blog" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-            <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
-            </div>
-            <a href="#tweets" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
-        </section>
-
-        <!-- Section 5: Tweets -->
-        <section id="tweets" class="section">
-            <a href="#research" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-            <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
-            <div class="space-y-6 max-w-2xl w-full">
-                <!-- Tweet 1 -->
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p>
+            <!-- Section 3: Blog -->
+            <section id="blog" class="section">
+                <a href="#projects" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+                <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Tweet 2 -->
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p>
-                </div>
-                <!-- Tweet 3 -->
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p>
-                </div>
-                 <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300 mt-4">View Older Tweets on X</a>
-            </div>
-            <a href="#gallery" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
-        </section>
+                <a href="#research" class="scroll-arrow-down">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </section>
 
-        <!-- Section 6: Gallery -->
-        <section id="gallery" class="section">
-            <a href="#tweets" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-            <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Networking at the annual tech conference.</p></div></div>
-            </div>
-            <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
-        </section>
-      </div>
+            <!-- Section 4: Research -->
+            <section id="research" class="section">
+                <a href="#blog" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+                <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3>
+                            <p class="text-gray-400">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#tweets" class="scroll-arrow-down">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </section>
+
+            <!-- Section 5: Tweets -->
+            <section id="tweets" class="section">
+                <a href="#research" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+                <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
+                <div class="space-y-6 max-w-2xl w-full">
+                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
+                        <p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p>
+                        <p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                        <p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p>
+                        <p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p>
+                    </div>
+                    <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300 mt-4">View Older Tweets on X</a>
+                </div>
+                <a href="#gallery" class="scroll-arrow-down">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </section>
+
+            <!-- Section 6: Gallery -->
+            <section id="gallery" class="section">
+                <a href="#tweets" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+                <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                        <img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                        <img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                        <img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <p class="text-gray-300 text-sm">Networking at the annual tech conference.</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="scroll-arrow-up">
+                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                </a>
+            </section>
+        </div>
     </main>
 
-    <!-- GSAP Animation Library for Smooth Scrolling -->
+    <!-- GSAP & Lenis for Smooth Scrolling -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <script>
-        // --- SMOOTH SCROLLING SCRIPT ---
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        // Smooth Scrolling (Natural, Not Sluggish)
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
+            smoothWheel: true
+        });
+
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                lenis.scrollTo(this.getAttribute('href'), { offset: 0, duration: 2.5 });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+                const distance = Math.abs(window.scrollY - target.offsetTop);
+                const duration = Math.min(Math.max(distance / 1000, 0.8), 1.8);
+                lenis.scrollTo(this.getAttribute('href'), { duration });
             });
         });
 
-        // --- NAME HOVER SCRIPT ---
+        // Name Hover Effect: "Abhishek Singh" → "Namaste 🙏" → Auto-Reverts after 2s
         const nameLogo = document.getElementById('name-logo');
         const nameText = document.getElementById('name-text');
         const originalName = nameText.textContent;
+        let revertTimeout;
 
         nameLogo.addEventListener('mouseenter', () => {
+            clearTimeout(revertTimeout);
             nameText.style.opacity = '0';
             setTimeout(() => {
                 nameText.innerHTML = 'Namaste &#x1F64F;';
                 nameText.classList.add('font-namaste');
                 nameText.style.opacity = '1';
+
+                // Auto-revert after 2 seconds
+                revertTimeout = setTimeout(() => {
+                    nameText.style.opacity = '0';
+                    setTimeout(() => {
+                        nameText.classList.remove('font-namaste');
+                        nameText.textContent = originalName;
+                        nameText.style.opacity = '1';
+                    }, 300);
+                }, 2000);
             }, 300);
         });
 
         nameLogo.addEventListener('mouseleave', () => {
-            nameText.style.opacity = '0';
-            setTimeout(() => {
-                nameText.classList.remove('font-namaste');
-                nameText.textContent = originalName;
-                nameText.style.opacity = '1';
-            }, 300);
+            clearTimeout(revertTimeout);
+            if (nameText.innerHTML.includes('Namaste')) {
+                nameText.style.opacity = '0';
+                setTimeout(() => {
+                    nameText.classList.remove('font-namaste');
+                    nameText.textContent = originalName;
+                    nameText.style.opacity = '1';
+                }, 300);
+            }
         });
     </script>
 </body>
