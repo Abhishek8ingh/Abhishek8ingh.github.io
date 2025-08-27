@@ -33,8 +33,8 @@
             padding: 2rem;
         }
         header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
-        
-        /* Pulse animation for latest tweet */
+
+        /* Pulse animation for Latest Tweet */
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
             50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
@@ -42,7 +42,7 @@
         .blinking-tweet { 
             animation: pulse 3s infinite; 
         }
-        
+
         /* Bounce arrow */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -253,7 +253,7 @@
             <!-- Section 1: About Me -->
             <section id="about" class="section">
                 <div class="container mx-auto w-full h-full flex items-center justify-center relative">
-                    <!-- === LATEST TWEET FLOATING BOX (Fully Restored) === -->
+                    <!-- === LATEST TWEET BOX (Positioned Top-Right) === -->
                     <a href="#tweets" class="blinking-tweet hidden lg:block absolute top-24 right-8 w-56 bg-gray-900/50 border border-gray-700 rounded-lg p-4 text-center transition-transform hover:scale-105 backdrop-blur-sm">
                         <h3 class="font-semibold text-white mb-2 text-sm">Latest Tweet</h3>
                         <p class="text-gray-400 italic text-xs">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
@@ -470,11 +470,13 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
     <script>
-        // Smooth Scrolling (Natural, Not Sluggish)
+        // Smooth Scrolling
         const lenis = new Lenis({
             duration: 1.5,
             easing: (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
-            smoothWheel: true
+            smoothWheel: true,
+            smoothTouch: true,
+            touchMultiplier: 2
         });
 
         lenis.on('scroll', ScrollTrigger.update);
@@ -492,7 +494,7 @@
             });
         });
 
-        // Name Hover Effect: "Abhishek Singh" → "Namaste 🙏" → Auto-Reverts after 2s
+        // Name Hover Effect with Auto-Revert
         const nameLogo = document.getElementById('name-logo');
         const nameText = document.getElementById('name-text');
         const originalName = nameText.textContent;
@@ -506,7 +508,6 @@
                 nameText.classList.add('font-namaste');
                 nameText.style.opacity = '1';
 
-                // Auto-revert after 2 seconds
                 revertTimeout = setTimeout(() => {
                     nameText.style.opacity = '0';
                     setTimeout(() => {
