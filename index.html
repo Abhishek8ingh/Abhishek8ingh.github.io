@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Viewport meta tag updated for better mobile accessibility (allows zooming) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek Singh - Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tangerine:wght@700&display=swap" rel="stylesheet">
     
     <style>
+        /* This single line enables smooth scrolling for anchor links, replacing the old JS library */
         html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c0a18;
@@ -20,7 +23,7 @@
             background-size: cover;
             background-attachment: fixed;
             color: #E5E7EB;
-            overflow: hidden;
+            /* The "overflow: hidden;" property was removed to allow natural browser scrolling */
         }
         .section {
             min-height: 100vh;
@@ -125,14 +128,16 @@
         .ufo-6 { animation: fly-across-6 95s linear infinite; animation-delay: 25s; }
 
         /* Responsive Fixes */
+        @media (max-width: 1024px) { /* Adjusted breakpoint for tweet box */
+             .blinking-tweet { display: none !important; }
+        }
         @media (max-width: 768px) {
             .section {
                 padding-top: 8rem;
                 justify-content: flex-start;
             }
             .scroll-arrow-down, .scroll-arrow-up { opacity: 0.7; }
-            .blinking-tweet { display: none !important; }
-            header .container { flex-direction: column; gap: 1rem; }
+            header .container { flex-direction: column; gap: 1rem; align-items: center; } /* Adjusted header for mobile */
             nav { display: flex; width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
             .flex-shrink-0 { margin-bottom: 1rem; }
         }
@@ -151,14 +156,24 @@
             <a href="#about" id="name-logo" class="text-2xl font-bold tracking-tight text-white h-10 flex items-center">
                 <span id="name-text">Abhishek Singh</span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
-                <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
-                <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
-                <a href="#research" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
-                <a href="#tweets" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
-                <a href="#gallery" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
-            </nav>
+            <!-- Container for Nav and Tweet Box -->
+            <div class="flex items-center">
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
+                    <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
+                    <a href="#research" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
+                    <a href="#tweets" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
+                </nav>
+                 <!-- === LATEST TWEET BOX (MOVED HERE) === -->
+                 <a href="#tweets" class="blinking-tweet hidden lg:flex items-center justify-center ml-8 w-52 bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-center transition-transform hover:scale-105 backdrop-blur-sm">
+                    <div>
+                        <h3 class="font-semibold text-white text-sm leading-tight">Latest Tweet</h3>
+                        <p class="text-gray-400 italic text-xs leading-tight mt-1">"Exploring the potential of decentralized AI..."</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -200,300 +215,222 @@
             </defs>
         </svg>
     </div>
-    <div class="background-ufo ufo-2">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
-                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
-                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
-                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
-            </g>
-        </svg>
-    </div>
-    <div class="background-ufo ufo-3">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
-                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
-                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
-                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
-            </g>
-        </svg>
-    </div>
-    <div class="background-ufo ufo-4">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
-                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
-                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
-            </g>
-        </svg>
-    </div>
-    <div class="background-ufo ufo-5">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
-                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
-                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
-            </g>
-        </svg>
-    </div>
-    <div class="background-ufo ufo-6">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/>
-                <path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/>
-                <ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/>
-            </g>
-        </svg>
-    </div>
+    <div class="background-ufo ufo-2"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-3"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-4"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
+    <div class="background-ufo ufo-5"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
+    <div class="background-ufo ufo-6"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
-            <!-- Section 1: About Me -->
-            <section id="about" class="section">
-                <div class="container mx-auto w-full h-full flex items-center justify-center relative">
-                    <!-- === LATEST TWEET BOX (Positioned Top-Right) === -->
-                    <a href="#tweets" class="blinking-tweet hidden lg:block absolute top-24 right-8 w-56 bg-gray-900/50 border border-gray-700 rounded-lg p-4 text-center transition-transform hover:scale-105 backdrop-blur-sm">
-                        <h3 class="font-semibold text-white mb-2 text-sm">Latest Tweet</h3>
-                        <p class="text-gray-400 italic text-xs">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
-                        <span class="block text-blue-400 mt-3 text-xs">Click to see more</span>
-                    </a>
-
-                    <!-- === MAIN ABOUT CONTENT === -->
-                    <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
-                        <div class="flex-shrink-0">
-                            <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                                <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover">
-                            </div>
+    <!-- The main content no longer needs special wrapper divs -->
+    <main>
+        <!-- Section 1: About Me -->
+        <section id="about" class="section">
+            <div class="container mx-auto w-full h-full flex items-center justify-center relative">
+                <!-- === MAIN ABOUT CONTENT === -->
+                <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
+                            <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
                         </div>
-                        <div class="text-center md:text-left">
-                            <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-                            <div class="text-gray-300 max-w-xl space-y-3 text-sm">
-                                <p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p>
-                                <p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p>
-                            </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                        <div class="text-gray-300 max-w-xl space-y-3 text-sm">
+                            <p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p>
+                            <p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p>
                         </div>
                     </div>
                 </div>
-                <a href="#projects" class="scroll-arrow-down">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </section>
+            </div>
+            <a href="#projects" class="scroll-arrow-down">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </section>
 
-            <!-- Section 2: Projects -->
-            <section id="projects" class="section">
-                <a href="#about" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-                <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Project One</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Project Two</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Project Three</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
+        <!-- Section 2: Projects -->
+        <section id="projects" class="section">
+            <a href="#about" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Project One</h3>
+                        <p class="text-gray-400">Coming Soon</p>
                     </div>
                 </div>
-                <a href="#blog" class="scroll-arrow-down">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </section>
-
-            <!-- Section 3: Blog -->
-            <section id="blog" class="section">
-                <a href="#projects" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-                <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Project Two</h3>
+                        <p class="text-gray-400">Coming Soon</p>
                     </div>
                 </div>
-                <a href="#research" class="scroll-arrow-down">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </section>
-
-            <!-- Section 4: Research -->
-            <section id="research" class="section">
-                <a href="#blog" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-                <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                        <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3>
-                            <p class="text-gray-400">Coming Soon</p>
-                        </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Project Three</h3>
+                        <p class="text-gray-400">Coming Soon</p>
                     </div>
                 </div>
-                <a href="#tweets" class="scroll-arrow-down">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </section>
+            </div>
+            <a href="#blog" class="scroll-arrow-down">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </section>
 
-            <!-- Section 5: Tweets -->
-            <section id="tweets" class="section">
-                <a href="#research" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-                <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
-                <div class="space-y-6 max-w-2xl w-full">
-                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                        <p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
-                        <p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                        <p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p>
-                        <p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                        <p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p>
-                        <p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p>
-                    </div>
-                    <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300 mt-4">View Older Tweets on X</a>
-                </div>
-                <a href="#gallery" class="scroll-arrow-down">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </section>
-
-            <!-- Section 6: Gallery -->
-            <section id="gallery" class="section">
-                <a href="#tweets" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-                <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                        <img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover">
-                        <div class="p-4">
-                            <p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                        <img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover">
-                        <div class="p-4">
-                            <p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                        <img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover">
-                        <div class="p-4">
-                            <p class="text-gray-300 text-sm">Networking at the annual tech conference.</p>
-                        </div>
+        <!-- Section 3: Blog -->
+        <section id="blog" class="section">
+            <a href="#projects" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3>
+                        <p class="text-gray-400">Coming Soon</p>
                     </div>
                 </div>
-                <a href="#about" class="scroll-arrow-up">
-                    <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                    </svg>
-                </a>
-            </section>
-        </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3>
+                        <p class="text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3>
+                        <p class="text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#research" class="scroll-arrow-down">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- Section 4: Research -->
+        <section id="research" class="section">
+            <a href="#blog" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3>
+                        <p class="text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3>
+                        <p class="text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3>
+                        <p class="text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#tweets" class="scroll-arrow-down">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- Section 5: Tweets -->
+        <section id="tweets" class="section">
+            <a href="#research" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
+            <div class="space-y-6 max-w-2xl w-full">
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
+                    <p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p>
+                    <p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p>
+                    <p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p>
+                </div>
+                <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300 mt-4">View Older Tweets on X</a>
+            </div>
+            <a href="#gallery" class="scroll-arrow-down">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- Section 6: Gallery -->
+        <section id="gallery" class="section">
+            <a href="#tweets" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+                    <img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+                    <img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-300 text-sm">Networking at the annual tech conference.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-arrow-up">
+                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+        </section>
     </main>
 
-    <!-- GSAP & Lenis for Smooth Scrolling -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-
+    <!-- The complex scrolling scripts have been removed. The script below is only for the name hover effect. -->
     <script>
-        // Smooth Scrolling
-        const lenis = new Lenis({
-            duration: 1.5,
-            easing: (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1,
-            smoothWheel: true,
-            smoothTouch: true,
-            touchMultiplier: 2
-        });
-
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (!target) return;
-                const distance = Math.abs(window.scrollY - target.offsetTop);
-                const duration = Math.min(Math.max(distance / 1000, 0.8), 1.8);
-                lenis.scrollTo(this.getAttribute('href'), { duration });
-            });
-        });
-
         // Name Hover Effect with Auto-Revert
         const nameLogo = document.getElementById('name-logo');
         const nameText = document.getElementById('name-text');
