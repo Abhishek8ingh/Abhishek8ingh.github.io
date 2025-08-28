@@ -133,10 +133,13 @@
             opacity: 1;
         }
 
-
+        /* === UFO ANIMATIONS RESTORED AND INCREASED === */
         @keyframes fly-across { 0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); } 100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); } }
         @keyframes fly-across-2 { 0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); } 100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); } }
         @keyframes fly-across-3 { 0% { transform: translateX(120vw) translateY(50vh) rotate(5deg) scale(0.9); } 100% { transform: translateX(-20vw) translateY(60vh) rotate(-5deg) scale(0.9); } }
+        @keyframes fly-across-4 { 0% { transform: translateX(120vw) translateY(85vh) rotate(-20deg) scale(0.6); } 100% { transform: translateX(-20vw) translateY(75vh) rotate(20deg) scale(0.6); } }
+        @keyframes fly-across-5 { 0% { transform: translateX(-20vw) translateY(5vh) rotate(5deg) scale(0.8); } 100% { transform: translateX(120vw) translateY(15vh) rotate(-5deg) scale(0.8); } }
+        @keyframes fly-across-6 { 0% { transform: translateX(50vw) translateY(120vh) rotate(0deg) scale(1.1); } 100% { transform: translateX(40vw) translateY(-20vh) rotate(0deg) scale(1.1); } }
         
         .background-ufo {
             position: fixed; top: 0; left: 0; width: 15vw; min-width: 100px; max-width: 180px;
@@ -144,6 +147,9 @@
         }
         .ufo-2 { animation: fly-across-2 60s linear infinite; animation-delay: 5s; }
         .ufo-3 { animation: fly-across-3 75s linear infinite; animation-delay: 10s; }
+        .ufo-4 { animation: fly-across-4 55s linear infinite; animation-delay: 15s; }
+        .ufo-5 { animation: fly-across-5 85s linear infinite; animation-delay: 20s; }
+        .ufo-6 { animation: fly-across-6 95s linear infinite; animation-delay: 25s; }
 
         .constellation { position: relative; }
         .star {
@@ -227,6 +233,14 @@
         </div>
     </div>
     <div id="assistant-status"></div>
+
+    <!-- === BACKGROUND UFOS RESTORED AND INCREASED === -->
+    <div class="background-ufo"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g><defs><radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" /><stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" /></radialGradient></defs></svg></div>
+    <div class="background-ufo ufo-2"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-3"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-4"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-5"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <div class="background-ufo ufo-6"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
 
     <main>
         <section id="about" class="section">
@@ -565,7 +579,6 @@
                 listeningOrb.classList.remove('active');
             };
 
-            // === UPDATED: ACTIVATE ON HOVER AND CLICK ===
             assistantContainer.addEventListener('click', activateAssistant);
             assistantContainer.addEventListener('mouseenter', activateAssistant);
 
@@ -579,7 +592,6 @@
             };
 
             function handleCommand(command) {
-                // === NEW: NAVIGATION COMMANDS ===
                 if (command.includes('about')) {
                     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('education')) {
@@ -600,12 +612,11 @@
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }
                 
-                // === EXISTING LINK COMMANDS ===
                 else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
                     window.open('https://github.com/fromorionarm', '_blank');
                 } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
                     window.open('https://x.com/abhishek8ingh', '_blank');
-                } else if (command.includes('substack')) { // Removed 'blog' from here to avoid conflict
+                } else if (command.includes('substack')) {
                     window.open('https://substack.com/@abhishek8ingh', '_blank');
                 } else if (command.includes('mail') || command.includes('gmail')) {
                     window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
