@@ -42,6 +42,13 @@
         }
         header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
 
+        /* === Active Navigation Link Style === */
+        .nav-link.active {
+            color: #ffffff;
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
             50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
@@ -63,7 +70,6 @@
         #name-logo span { transition: opacity 0.3s ease-in-out; }
         .font-namaste { font-family: 'Tangerine', cursive; font-size: 2.8rem; line-height: 1; }
 
-        /* === VOICE ASSISTANT STYLES === */
         #assistant-container {
             position: fixed;
             bottom: 1rem;
@@ -133,7 +139,6 @@
             opacity: 1;
         }
 
-        /* === UFO ANIMATIONS === */
         @keyframes fly-across { 0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); } 100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); } }
         @keyframes fly-across-2 { 0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); } 100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); } }
         @keyframes fly-across-3 { 0% { transform: translateX(120vw) translateY(50vh) rotate(5deg) scale(0.9); } 100% { transform: translateX(-20vw) translateY(60vh) rotate(-5deg) scale(0.9); } }
@@ -157,13 +162,13 @@
             box-shadow: 0 0 8px white, 0 0 12px #60A5FA, 0 0 16px #3B82F6;
             transition: all 0.3s ease; cursor: pointer;
         }
-        .star:hover { transform: scale(1.8); }
+        .star:hover, .star.touched { transform: scale(1.8); }
         .star .skill-name {
             position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%);
             padding: 4px 8px; background: #111827; color: white; border-radius: 4px;
             font-size: 0.8rem; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
         }
-        .star:hover .skill-name { opacity: 1; }
+        .star:hover .skill-name, .star.touched .skill-name { opacity: 1; }
 
         .form-input {
             background: rgba(17, 24, 39, 0.5); border: 1px solid #4B5563; color: white;
@@ -194,15 +199,15 @@
                 <span id="name-text">Abhishek Singh</span>
             </a>
             <nav class="hidden md:flex items-center space-x-8 text-sm">
-                <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
-                <a href="#education" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Education</a>
-                <a href="#skills" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Skills</a>
-                <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
-                <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
-                <a href="#research" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
-                <a href="#tweets" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
-                <a href="#gallery" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Contact</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
+                <a href="#education" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Education</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Skills</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
+                <a href="#blog" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
+                <a href="#research" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
+                <a href="#tweets" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
+                <a href="#gallery" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Contact</a>
             </nav>
         </div>
     </header>
@@ -304,10 +309,8 @@
         <section id="projects" class="section">
             <a href="#skills" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <!-- Projects will be loaded here by JavaScript -->
             </div>
             <a href="#blog" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -315,10 +318,8 @@
         <section id="blog" class="section">
             <a href="#projects" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <!-- Blog posts will be loaded here by JavaScript -->
             </div>
              <a href="mailto:ima6hisheksingh@gmail.com?subject=Subscribe to your Blog&body=Hi Abhishek, I'd like to subscribe to your blog updates!" class="mt-8 bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Subscribe to my Blog</a>
             <a href="#research" class="scroll-arrow-down mt-16"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
@@ -327,10 +328,8 @@
         <section id="research" class="section">
             <a href="#blog" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
+            <div id="research-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <!-- Research papers will be loaded here by JavaScript -->
             </div>
             <a href="#tweets" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -350,10 +349,8 @@
         <section id="gallery" class="section">
             <a href="#tweets" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p></div></div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Networking at the annual tech conference.</p></div></div>
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <!-- Gallery images will be loaded here by JavaScript -->
             </div>
             <a href="#contact" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -374,12 +371,72 @@
     </main>
 
     <footer class="text-center py-8 text-gray-500 text-sm z-10 relative">
-        <p> Desktop browser recommended for full experience.</p>
         <p>&copy; 2025 Abhishek Singh. All Rights Reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Dynamic Content Loading ---
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    populateGrid('projects-grid', data.projects, createProjectCard);
+                    populateGrid('research-grid', data.research, createResearchCard);
+                    populateGrid('gallery-grid', data.gallery, createGalleryCard);
+                    populateGrid('blog-grid', data.blogs, createBlogCard);
+                })
+                .catch(error => console.error('Error loading data:', error));
+
+            function populateGrid(gridId, items, cardCreator) {
+                const grid = document.getElementById(gridId);
+                if (grid) {
+                    grid.innerHTML = items.map(cardCreator).join('');
+                }
+            }
+
+            const colorClasses = {
+                blue: 'hover:shadow-blue-500/20',
+                purple: 'hover:shadow-purple-500/20',
+                pink: 'hover:shadow-pink-500/20'
+            };
+
+            function createProjectCard(item) {
+                return `
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}">
+                        <img src="${item.imageUrl}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">${item.title}</h3>
+                            <p class="text-gray-400">${item.description}</p>
+                        </div>
+                    </div>`;
+            }
+            
+            function createBlogCard(item) {
+                return `
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}">
+                        <img src="${item.imageUrl}" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">${item.title}</h3>
+                            <p class="text-gray-400">${item.description}</p>
+                        </div>
+                    </div>`;
+            }
+
+            function createResearchCard(item) {
+                return createProjectCard(item); // They have the same structure
+            }
+
+            function createGalleryCard(item) {
+                return `
+                    <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}">
+                        <img src="${item.imageUrl}" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <p class="text-gray-300 text-sm">${item.caption}</p>
+                        </div>
+                    </div>`;
+            }
+
+
             // --- Interactive Starfield & Meteor Shower Script ---
             const canvas = document.getElementById('starfield');
             if (canvas) {
@@ -410,15 +467,22 @@
                     });
                 }
 
-                setInterval(createMeteor, 2000); // Create a new meteor every 2 seconds
+                setInterval(createMeteor, 2000);
 
-                window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+                const updateMousePosition = (e) => {
+                    mouse.x = e.clientX || (e.touches && e.touches[0].clientX);
+                    mouse.y = e.clientY || (e.touches && e.touches[0].clientY);
+                };
+                
+                window.addEventListener('mousemove', updateMousePosition);
+                window.addEventListener('touchmove', updateMousePosition);
                 window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+                window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
+
 
                 function draw() {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     
-                    // Draw stars
                     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
                     stars.forEach(star => {
                         let newX = star.x;
@@ -437,7 +501,6 @@
                         ctx.fill();
                     });
 
-                    // Draw meteors
                     meteors.forEach((meteor, index) => {
                         ctx.beginPath();
                         const gradient = ctx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.length, meteor.y + meteor.length);
@@ -448,11 +511,9 @@
                         ctx.moveTo(meteor.x, meteor.y);
                         ctx.lineTo(meteor.x - meteor.length, meteor.y + meteor.length);
                         ctx.stroke();
-
                         meteor.x -= meteor.speed;
                         meteor.y += meteor.speed;
                         meteor.opacity -= 0.01;
-
                         if (meteor.opacity <= 0) {
                             meteors.splice(index, 1);
                         }
@@ -479,21 +540,13 @@
             const contactForm = document.getElementById('contact-form');
             if(contactForm) {
                 contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Stop the form from reloading the page
-                    
+                    e.preventDefault();
                     const name = document.getElementById('contact-name').value;
                     const email = document.getElementById('contact-email').value;
                     const message = document.getElementById('contact-message').value;
-                    
                     const subject = `Contact Form Submission from ${name}`;
-                    
-                    // Encode the body to handle special characters and line breaks
                     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-                    
-                    // Create the mailto link
                     const mailtoLink = `mailto:abhisheksinghmailid@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-                    
-                    // Open the user's default email client
                     window.location.href = mailtoLink;
                 });
             }
@@ -591,8 +644,6 @@
             };
 
             function handleCommand(command) {
-                // === CORRECTED COMMAND LOGIC ===
-                // Check for specific, multi-word commands first to avoid conflicts.
                 if (command.includes('blog account') || command.includes('substack')) {
                     window.open('https://substack.com/@abhishek8ingh', '_blank');
                 } else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
@@ -602,7 +653,6 @@
                 } else if (command.includes('mail') || command.includes('gmail')) {
                     window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
                 } 
-                // Then, check for single-word navigation commands.
                 else if (command.includes('about')) {
                     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('education')) {
@@ -625,6 +675,48 @@
                     showStatus('Command not recognized.');
                 }
             }
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Constellation Touch Handler ---
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                star.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    stars.forEach(s => {
+                        if (s !== star) {
+                            s.classList.remove('touched');
+                        }
+                    });
+                    star.classList.toggle('touched');
+                });
+            });
+
         });
     </script>
 </body>
