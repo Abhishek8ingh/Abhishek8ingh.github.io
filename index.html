@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport meta tag updated for better mobile accessibility (allows zooming) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek Singh - Portfolio</title>
     <!-- Tailwind CSS -->
@@ -13,17 +12,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tangerine:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* This single line enables smooth scrolling for anchor links, replacing the old JS library */
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0c0a18;
-            background-image: linear-gradient(rgba(12, 10, 24, 0.6), rgba(12, 10, 24, 0.7)), url('https://images.unsplash.com/photo-1504333638930-c8787321eee0?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(12, 10, 24, 0.8), rgba(12, 10, 24, 0.9)), url('https://images.unsplash.com/photo-1504333638930-c8787321eee0?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-attachment: fixed;
             color: #E5E7EB;
-            /* The "overflow: hidden;" property was removed to allow natural browser scrolling */
+        }
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
         .section {
             min-height: 100vh;
@@ -34,112 +38,73 @@
             align-items: center;
             position: relative;
             padding: 2rem;
+            z-index: 2;
         }
         header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; }
 
-        /* Pulse animation for Latest Tweet */
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); }
             50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
         }
-        .blinking-tweet { 
-            animation: pulse 3s infinite; 
-        }
+        .blinking-tweet { animation: pulse 3s infinite; }
 
-        /* Bounce arrow */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-20px); }
             60% { transform: translateY(-10px); }
         }
         .scroll-arrow-down, .scroll-arrow-up {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            z-index: 50;
+            position: absolute; left: 50%; transform: translateX(-50%);
+            animation: bounce 2s infinite; cursor: pointer; z-index: 50;
         }
         .scroll-arrow-down { bottom: 2rem; }
         .scroll-arrow-up { top: 6rem; }
 
-        /* Name hover effect */
-        #name-logo span {
-            transition: opacity 0.3s ease-in-out;
-        }
-        .font-namaste {
-            font-family: 'Tangerine', cursive;
-            font-size: 2.8rem;
-            line-height: 1;
-        }
+        #name-logo span { transition: opacity 0.3s ease-in-out; }
+        .font-namaste { font-family: 'Tangerine', cursive; font-size: 2.8rem; line-height: 1; }
 
-        /* Alien eye blink */
         @keyframes blink {
             0%, 90%, 100% { transform: scaleY(1); }
             95% { transform: scaleY(0.1); }
         }
-        .alien-eye {
-            animation: blink 5s infinite;
-            transform-origin: center;
-        }
+        .alien-eye { animation: blink 5s infinite; transform-origin: center; }
 
-        /* UFO Animations */
-        @keyframes fly-across {
-            0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); }
-            100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); }
-        }
-        @keyframes fly-across-2 {
-            0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); }
-            100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); }
-        }
-        @keyframes fly-across-3 {
-            0% { transform: translateX(120vw) translateY(50vh) rotate(5deg) scale(0.9); }
-            100% { transform: translateX(-20vw) translateY(60vh) rotate(-5deg) scale(0.9); }
-        }
-        @keyframes fly-across-4 {
-            0% { transform: translateX(120vw) translateY(85vh) rotate(-20deg) scale(0.6); }
-            100% { transform: translateX(-20vw) translateY(75vh) rotate(20deg) scale(0.6); }
-        }
-        @keyframes fly-across-5 {
-            0% { transform: translateX(-20vw) translateY(5vh) rotate(5deg) scale(0.8); }
-            100% { transform: translateX(120vw) translateY(15vh) rotate(-5deg) scale(0.8); }
-        }
-        @keyframes fly-across-6 {
-            0% { transform: translateX(50vw) translateY(120vh) rotate(0deg) scale(1.1); }
-            100% { transform: translateX(40vw) translateY(-20vh) rotate(0deg) scale(1.1); }
-        }
-
+        @keyframes fly-across { 0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); } 100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); } }
+        @keyframes fly-across-2 { 0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); } 100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); } }
+        @keyframes fly-across-3 { 0% { transform: translateX(120vw) translateY(50vh) rotate(5deg) scale(0.9); } 100% { transform: translateX(-20vw) translateY(60vh) rotate(-5deg) scale(0.9); } }
+        
         .background-ufo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 15vw;
-            min-width: 100px;
-            max-width: 180px;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0.25;
-            animation: fly-across 45s linear infinite;
+            position: fixed; top: 0; left: 0; width: 15vw; min-width: 100px; max-width: 180px;
+            z-index: 1; pointer-events: none; opacity: 0.25; animation: fly-across 45s linear infinite;
         }
         .ufo-2 { animation: fly-across-2 60s linear infinite; animation-delay: 5s; }
         .ufo-3 { animation: fly-across-3 75s linear infinite; animation-delay: 10s; }
-        .ufo-4 { animation: fly-across-4 55s linear infinite; animation-delay: 15s; }
-        .ufo-5 { animation: fly-across-5 85s linear infinite; animation-delay: 20s; }
-        .ufo-6 { animation: fly-across-6 95s linear infinite; animation-delay: 25s; }
 
-        /* Responsive Fixes */
-        @media (max-width: 1024px) { /* Adjusted breakpoint for tweet box */
-             .blinking-tweet { display: none !important; }
+        .constellation { position: relative; }
+        .star {
+            position: absolute; width: 12px; height: 12px; background: white; border-radius: 50%;
+            box-shadow: 0 0 8px white, 0 0 12px #60A5FA, 0 0 16px #3B82F6;
+            transition: all 0.3s ease; cursor: pointer;
         }
+        .star:hover { transform: scale(1.8); }
+        .star .skill-name {
+            position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%);
+            padding: 4px 8px; background: #111827; color: white; border-radius: 4px;
+            font-size: 0.8rem; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+        }
+        .star:hover .skill-name { opacity: 1; }
+
+        .form-input {
+            background: rgba(17, 24, 39, 0.5); border: 1px solid #4B5563; color: white;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus { outline: none; border-color: #3B82F6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+
+        @media (max-width: 1024px) { .blinking-tweet { display: none !important; } }
         @media (max-width: 768px) {
-            .section {
-                padding-top: 8rem;
-                justify-content: flex-start;
-            }
-            .scroll-arrow-down, .scroll-arrow-up { opacity: 0.7; }
-            header .container { flex-direction: column; gap: 1rem; align-items: center; } /* Adjusted header for mobile */
-            nav { display: flex; width: 100%; justify-content: center; flex-wrap: wrap; gap: 1rem; }
-            .flex-shrink-0 { margin-bottom: 1rem; }
+            .section { padding-top: 10rem; justify-content: flex-start; }
+            header .container { flex-direction: column; gap: 1rem; align-items: center; }
+            nav { display: flex; width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1rem; }
         }
         @media (max-width: 640px) {
             .background-ufo { width: 10vw; min-width: 60px; }
@@ -150,322 +115,304 @@
     </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
+    <canvas id="starfield"></canvas>
+
     <header class="bg-black/30 backdrop-blur-md">
         <div class="container mx-auto flex justify-between items-center p-4 sm:p-6">
             <a href="#about" id="name-logo" class="text-2xl font-bold tracking-tight text-white h-10 flex items-center">
                 <span id="name-text">Abhishek Singh</span>
             </a>
-            <!-- Container for Nav and Tweet Box -->
-            <div class="flex items-center">
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
-                    <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
-                    <a href="#research" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
-                    <a href="#tweets" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
-                    <a href="#gallery" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
-                </nav>
-                 <!-- === LATEST TWEET BOX (MOVED HERE) === -->
-                 <a href="#tweets" class="blinking-tweet hidden lg:flex items-center justify-center ml-8 w-52 bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-center transition-transform hover:scale-105 backdrop-blur-sm">
-                    <div>
-                        <h3 class="font-semibold text-white text-sm leading-tight">Latest Tweet</h3>
-                        <p class="text-gray-400 italic text-xs leading-tight mt-1">"Exploring the potential of decentralized AI..."</p>
-                    </div>
-                </a>
-            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
+                <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
+                <a href="#research" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
+                <a href="#tweets" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
+                <a href="#gallery" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Social Links -->
+    <a href="#tweets" class="blinking-tweet hidden lg:block absolute top-24 right-8 w-56 bg-gray-900/50 border border-gray-700 rounded-lg p-4 text-center transition-transform hover:scale-105 backdrop-blur-sm z-50">
+        <h3 class="font-semibold text-white mb-2 text-sm">Latest Tweet</h3>
+        <p class="text-gray-400 italic text-xs">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
+        <span class="block text-blue-400 mt-3 text-xs">Click to see more</span>
+    </a>
+
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg>
-        </a>
-        <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 1024 1024"><path d="M512 0L52 128v768l460 128 460-128V128L512 0zM224 269.46L512 192l288 77.46v110.1L512 457.76 224 379.56V269.46zm576 481.08L512 828.74l-288-78.2V530.7l288 77.46 288-77.46v220.84z"/></svg>
+        <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
+        <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 1024 1024"><path d="M512 0L52 128v768l460 128 460-128V128L512 0zM224 269.46L512 192l288 77.46v110.1L512 457.76 224 379.56V269.46zm576 481.08L512 828.74l-288-78.2V530.7l288 77.46 288-77.46v220.84z"/></svg></a>
+        <!-- === GMAIL ICON ADDED === -->
+        <a href="mailto:abhisheksinghmailid@gmail.com" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-red-500/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
     </div>
 
-    <!-- Alien Mascot -->
-    <div class="fixed bottom-4 left-4 z-50 w-20 h-20 opacity-90">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 60 100 C 60 50, 140 50, 140 100 C 140 150, 115 170, 100 170 C 85 170, 60 150, 60 100 Z" fill="#4B5563"/>
-            <path d="M 65 100 C 65 55, 135 55, 135 100 C 135 145, 115 165, 100 165 C 85 165, 65 145, 65 100 Z" fill="#D1D5DB"/>
-            <ellipse cx="85" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/>
-            <ellipse cx="115" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/>
-            <path d="M95 140 L 105 140" stroke="#4B5563" stroke-width="3" fill="none" stroke-linecap="round"/>
-        </svg>
-    </div>
+    <div class="fixed bottom-4 left-4 z-50 w-20 h-20 opacity-90"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M 60 100 C 60 50, 140 50, 140 100 C 140 150, 115 170, 100 170 C 85 170, 60 150, 60 100 Z" fill="#4B5563"/><path d="M 65 100 C 65 55, 135 55, 135 100 C 135 145, 115 165, 100 165 C 85 165, 65 145, 65 100 Z" fill="#D1D5DB"/><ellipse cx="85" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/><ellipse cx="115" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/><path d="M95 140 L 105 140" stroke="#4B5563" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
 
-    <!-- Background UFOs -->
-    <div class="background-ufo">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/>
-                <path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/>
-                <path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/>
-                <ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/>
-            </g>
-            <defs>
-                <radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                    <stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" />
-                </radialGradient>
-            </defs>
-        </svg>
-    </div>
+    <div class="background-ufo"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g><defs><radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" /><stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" /></radialGradient></defs></svg></div>
     <div class="background-ufo ufo-2"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
     <div class="background-ufo ufo-3"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
-    <div class="background-ufo ufo-4"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
-    <div class="background-ufo ufo-5"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
-    <div class="background-ufo ufo-6"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 60 110 C 20 110, 20 90, 60 90 L 140 90 C 180 90, 180 110, 140 110 Z" fill="#6B7280"/><path d="M 80 90 C 80 75, 120 75, 120 90 Z" fill="#A5B4FC" opacity="0.6"/><ellipse cx="100" cy="100" rx="40" ry="8" fill="#34D399" opacity="0.8"/></g></svg></div>
 
-    <!-- The main content no longer needs special wrapper divs -->
     <main>
-        <!-- Section 1: About Me -->
         <section id="about" class="section">
-            <div class="container mx-auto w-full h-full flex items-center justify-center relative">
-                <!-- === MAIN ABOUT CONTENT === -->
+            <div class="container mx-auto w-full h-full flex items-center justify-center relative z-10">
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
-                    <div class="flex-shrink-0">
-                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
-                        </div>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-                        <div class="text-gray-300 max-w-xl space-y-3 text-sm">
-                            <p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p>
-                            <p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p>
-                        </div>
-                    </div>
+                    <div class="flex-shrink-0"><div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700"><img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';"></div></div>
+                    <div class="text-center md:text-left"><h2 class="text-4xl font-bold text-white mb-4">About Me</h2><div class="text-gray-300 max-w-xl space-y-3 text-sm"><p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p><p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p></div></div>
                 </div>
             </div>
-            <a href="#projects" class="scroll-arrow-down">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </a>
+            <a href="#skills" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- Section 2: Projects -->
+        <section id="skills" class="section">
+            <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <h2 class="text-5xl font-bold text-white mb-12">Skill Constellations</h2>
+            <div class="constellation w-full max-w-3xl h-96">
+                <svg class="absolute w-full h-full opacity-30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 600 400"><path d="M 80 50 L 200 150 L 350 80" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/><path d="M 450 50 L 520 150" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/><path d="M 100 350 L 250 280 L 400 340 L 500 250" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/></svg>
+                <div class="star" style="top: 10%; left: 12%;"><div class="skill-name">Data Science</div></div>
+                <div class="star" style="top: 35%; left: 32%;"><div class="skill-name">Data Structures</div></div>
+                <div class="star" style="top: 18%; left: 57%;"><div class="skill-name">Python</div></div>
+                <div class="star" style="top: 10%; left: 74%;"><div class="skill-name">ML / AI</div></div>
+                <div class="star" style="top: 35%; left: 85%;"><div class="skill-name">SQL</div></div>
+                <div class="star" style="top: 85%; left: 15%;"><div class="skill-name">Calculus</div></div>
+                <div class="star" style="top: 68%; left: 40%;"><div class="skill-name">Linear Algebra</div></div>
+                <div class="star" style="top: 60%; left: 82%;"><div class="skill-name">Git</div></div>
+            </div>
+            <a href="#projects" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+        </section>
+
         <section id="projects" class="section">
-            <a href="#about" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#skills" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Project One</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Project Two</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Project Three</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project One</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Project Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
             </div>
-            <a href="#blog" class="scroll-arrow-down">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </a>
+            <a href="#blog" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- Section 3: Blog -->
         <section id="blog" class="section">
-            <a href="#projects" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#projects" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post One</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
             </div>
-            <a href="#research" class="scroll-arrow-down">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </a>
+             <a href="mailto:abhisheksinghmailid@gmail.com?subject=Subscribe to your Blog&body=Hi Abhishek, I'd like to subscribe to your blog updates!" class="mt-8 bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Subscribe to my Blog</a>
+            <a href="#research" class="scroll-arrow-down mt-16"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- Section 4: Research -->
         <section id="research" class="section">
-            <a href="#blog" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#blog" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                    <img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3>
-                        <p class="text-gray-400">Coming Soon</p>
-                    </div>
-                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper One</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Research Paper Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
             </div>
-            <a href="#tweets" class="scroll-arrow-down">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </a>
+            <a href="#tweets" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- Section 5: Tweets -->
         <section id="tweets" class="section">
-            <a href="#research" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#research" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
             <div class="space-y-6 max-w-2xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg">
-                    <p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p>
-                    <p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p>
-                </div>
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg"><p class="text-gray-300 italic">"Exploring the potential of decentralized AI. The possibilities are as vast as the cosmos."</p><p class="text-right text-sm text-blue-400 mt-2">Aug 27, 2025 - 9:10 PM</p></div>
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg"><p class="text-gray-300 italic">"Just spent the afternoon refactoring an old project. It's amazing how much you learn by looking back at your own code."</p><p class="text-right text-sm text-blue-400 mt-2">Aug 26, 2025 - 4:30 PM</p></div>
+                <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg"><p class="text-gray-300 italic">"The elegance of a well-structured algorithm is a form of art."</p><p class="text-right text-sm text-blue-400 mt-2">Aug 25, 2025 - 11:00 AM</p></div>
                 <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300 mt-4">View Older Tweets on X</a>
             </div>
-            <a href="#gallery" class="scroll-arrow-down">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </a>
+            <a href="#gallery" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- Section 6: Gallery -->
         <section id="gallery" class="section">
-            <a href="#tweets" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#tweets" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-                    <img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-                    <img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p>
-                    </div>
-                </div>
-                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
-                    <img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <p class="text-gray-300 text-sm">Networking at the annual tech conference.</p>
-                    </div>
-                </div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"><img src="https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Caption for the science exhibition photo.</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">A snapshot from a recent project in the lab.</p></div></div>
+                <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x600/0c0a18/ec4899?text=Conference" class="w-full h-64 object-cover"><div class="p-4"><p class="text-gray-300 text-sm">Networking at the annual tech conference.</p></div></div>
             </div>
-            <a href="#about" class="scroll-arrow-up">
-                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+            <a href="#contact" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+        </section>
+
+        <section id="contact" class="section">
+            <a href="#gallery" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <h2 class="text-5xl font-bold text-white mb-12">Send a Transmission</h2>
+            <div class="w-full max-w-lg text-center">
+                <p class="text-gray-400 mb-8">Have a question or want to work together? Feel free to reach out. The best way to contact me is by email.</p>
+                <!-- === CONTACT FORM UPDATED === -->
+                <form id="contact-form" class="space-y-6">
+                    <input type="text" id="contact-name" placeholder="Your Name" class="form-input w-full p-3 rounded-md" required>
+                    <input type="email" id="contact-email" placeholder="Your Email" class="form-input w-full p-3 rounded-md" required>
+                    <textarea id="contact-message" placeholder="Your Message" rows="5" class="form-input w-full p-3 rounded-md" required></textarea>
+                    <button type="submit" class="w-full bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 rounded-lg transition-colors duration-300">Send Message</button>
+                </form>
+            </div>
         </section>
     </main>
 
-    <!-- The complex scrolling scripts have been removed. The script below is only for the name hover effect. -->
     <script>
-        // Name Hover Effect with Auto-Revert
-        const nameLogo = document.getElementById('name-logo');
-        const nameText = document.getElementById('name-text');
-        const originalName = nameText.textContent;
-        let revertTimeout;
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Interactive Starfield & Meteor Shower Script ---
+            const canvas = document.getElementById('starfield');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
 
-        nameLogo.addEventListener('mouseenter', () => {
-            clearTimeout(revertTimeout);
-            nameText.style.opacity = '0';
-            setTimeout(() => {
-                nameText.innerHTML = 'Namaste &#x1F64F;';
-                nameText.classList.add('font-namaste');
-                nameText.style.opacity = '1';
+                let stars = [];
+                let meteors = [];
+                let mouse = { x: null, y: null };
+                const numStars = window.innerWidth > 768 ? 150 : 50;
 
-                revertTimeout = setTimeout(() => {
-                    nameText.style.opacity = '0';
-                    setTimeout(() => {
-                        nameText.classList.remove('font-namaste');
-                        nameText.textContent = originalName;
-                        nameText.style.opacity = '1';
-                    }, 300);
-                }, 2000);
-            }, 300);
-        });
+                for (let i = 0; i < numStars; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        radius: Math.random() * 1.5 + 0.5,
+                    });
+                }
 
-        nameLogo.addEventListener('mouseleave', () => {
-            clearTimeout(revertTimeout);
-            if (nameText.innerHTML.includes('Namaste')) {
+                function createMeteor() {
+                    meteors.push({
+                        x: Math.random() * canvas.width * 1.5,
+                        y: -10,
+                        length: Math.random() * 100 + 50,
+                        speed: Math.random() * 5 + 5,
+                        opacity: 1
+                    });
+                }
+
+                setInterval(createMeteor, 2000); // Create a new meteor every 2 seconds
+
+                window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+                window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+                function draw() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Draw stars
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                    stars.forEach(star => {
+                        let newX = star.x;
+                        let newY = star.y;
+                        if (mouse.x) {
+                            let dx = mouse.x - newX;
+                            let dy = mouse.y - newY;
+                            let distance = Math.sqrt(dx * dx + dy * dy);
+                            if (distance < 150) {
+                                newX -= dx / 10;
+                                newY -= dy / 10;
+                            }
+                        }
+                        ctx.beginPath();
+                        ctx.arc(newX, newY, star.radius, 0, Math.PI * 2);
+                        ctx.fill();
+                    });
+
+                    // Draw meteors
+                    meteors.forEach((meteor, index) => {
+                        ctx.beginPath();
+                        const gradient = ctx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.length, meteor.y + meteor.length);
+                        gradient.addColorStop(0, `rgba(255, 255, 255, ${meteor.opacity})`);
+                        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 2;
+                        ctx.moveTo(meteor.x, meteor.y);
+                        ctx.lineTo(meteor.x - meteor.length, meteor.y + meteor.length);
+                        ctx.stroke();
+
+                        meteor.x -= meteor.speed;
+                        meteor.y += meteor.speed;
+                        meteor.opacity -= 0.01;
+
+                        if (meteor.opacity <= 0) {
+                            meteors.splice(index, 1);
+                        }
+                    });
+                }
+
+                function animate() {
+                    draw();
+                    requestAnimationFrame(animate);
+                }
+                animate();
+
+                window.addEventListener('resize', () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    stars = [];
+                     for (let i = 0; i < numStars; i++) {
+                        stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 });
+                    }
+                });
+            }
+
+            // --- Contact Form Handler ---
+            const contactForm = document.getElementById('contact-form');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Stop the form from reloading the page
+                    
+                    const name = document.getElementById('contact-name').value;
+                    const email = document.getElementById('contact-email').value;
+                    const message = document.getElementById('contact-message').value;
+                    
+                    const subject = `Contact Form Submission from ${name}`;
+                    
+                    // Encode the body to handle special characters and line breaks
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                    
+                    // Create the mailto link
+                    const mailtoLink = `mailto:abhisheksinghmailid@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+                    
+                    // Open the user's default email client
+                    window.location.href = mailtoLink;
+                });
+            }
+
+            // --- Name Hover Effect Script ---
+            const nameLogo = document.getElementById('name-logo');
+            const nameText = document.getElementById('name-text');
+            const originalName = nameText.textContent;
+            let isAnimating = false;
+            let revertTimeout;
+
+            const showNamaste = (duration) => {
+                if (isAnimating) return;
+                isAnimating = true;
+                clearTimeout(revertTimeout);
+                nameText.style.opacity = '0';
+                setTimeout(() => {
+                    nameText.innerHTML = 'Namaste &#x1F64F;';
+                    nameText.classList.add('font-namaste');
+                    nameText.style.opacity = '1';
+                    revertTimeout = setTimeout(hideNamaste, duration);
+                }, 300);
+            };
+
+            const hideNamaste = () => {
                 nameText.style.opacity = '0';
                 setTimeout(() => {
                     nameText.classList.remove('font-namaste');
                     nameText.textContent = originalName;
                     nameText.style.opacity = '1';
+                    isAnimating = false;
                 }, 300);
-            }
+            };
+
+            setTimeout(() => showNamaste(2000), 1500);
+            nameLogo.addEventListener('mouseenter', () => showNamaste(2000));
+            nameLogo.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                showNamaste(2000);
+            });
         });
     </script>
 </body>
