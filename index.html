@@ -118,12 +118,15 @@
     <canvas id="starfield"></canvas>
 
     <header class="bg-black/30 backdrop-blur-md">
-        <div class="container mx-auto flex justify-between items-center p-4 sm:p-6">
+        <!-- === UPDATED HEADER CONTAINER FOR BETTER SPACING === -->
+        <div class="w-full flex justify-between items-center px-8 sm:px-12 py-4">
             <a href="#about" id="name-logo" class="text-2xl font-bold tracking-tight text-white h-10 flex items-center">
                 <span id="name-text">Abhishek Singh</span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8">
+            <!-- === UPDATED NAV FOR SMALLER TEXT === -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm">
                 <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
+                <a href="#education" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Education</a>
                 <a href="#skills" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Skills</a>
                 <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
                 <a href="#blog" class="text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
@@ -158,16 +161,48 @@
     <main>
         <section id="about" class="section">
             <div class="container mx-auto w-full h-full flex items-center justify-center relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl">
-                    <div class="flex-shrink-0"><div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700"><img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';"></div></div>
-                    <div class="text-center md:text-left"><h2 class="text-4xl font-bold text-white mb-4">About Me</h2><div class="text-gray-300 max-w-xl space-y-3 text-sm"><p>I'm a Computer Science student from India with a deep passion for the intersection of technology, AI, and space exploration. My journey in tech is driven by a desire to build the future, one line of code at a time.</p><p>I thrive on solving complex problems and am constantly exploring new ways to leverage software to make a tangible impact on the world, from developing intelligent systems to conceptualizing technology for off-world applications.</p></div></div>
+                <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+                    <div class="flex-shrink-0">
+                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
+                            <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                        <div class="text-gray-300 max-w-xl space-y-3 text-sm leading-relaxed">
+                            <p>Hi, I’m Abhishek Singh, a computer science student from India. I’m passionate about solving real-world problems—especially the ones that no one else is working on—using technology, AI, and innovation.</p>
+                            <p>For me, building things from the basics and taking them all the way to the top level is what I truly enjoy. I love understanding concepts from their deep roots to their highest applications.</p>
+                            <p>Beyond technology, I’m deeply fascinated by space and its mysteries. Learning about space gives me a sense of calmness, almost like meditation. In my free time, I enjoy exploring the latest developments in technology and space—especially from the private sector.</p>
+                            <p>I also like sharing my thoughts and ideas on social media, particularly on X (formerly Twitter).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#education" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+        </section>
+
+        <section id="education" class="section">
+            <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <h2 class="text-5xl font-bold text-white mb-12">Education Journey</h2>
+            <div class="constellation w-full max-w-xl h-96">
+                <svg class="absolute w-full h-full opacity-30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 600 400">
+                    <path d="M 100 80 L 300 200 L 500 120" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+                </svg>
+                <div class="star" style="top: 20%; left: 15%;">
+                    <div class="skill-name">Higher Secondary (Grade 3-12), New Standard Public School, Graduated 2020</div>
+                </div>
+                <div class="star" style="top: 50%; left: 50%;">
+                    <div class="skill-name">B.Tech, Computer Science, Galgotias University (2021 - 2025)</div>
+                </div>
+                <div class="star" style="top: 30%; left: 85%;">
+                    <div class="skill-name">GATE Aspirant (2025)</div>
                 </div>
             </div>
             <a href="#skills" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
         <section id="skills" class="section">
-            <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <a href="#education" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Skill Constellations</h2>
             <div class="constellation w-full max-w-3xl h-96">
                 <svg class="absolute w-full h-full opacity-30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 600 400"><path d="M 80 50 L 200 150 L 350 80" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/><path d="M 450 50 L 520 150" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/><path d="M 100 350 L 250 280 L 400 340 L 500 250" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,5"/></svg>
@@ -202,7 +237,6 @@
                 <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20"><img src="https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Two</h3><p class="text-gray-400">Coming Soon</p></div></div>
                 <div class="bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20"><img src="https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image" class="w-full h-48 object-cover"><div class="p-6"><h3 class="text-xl font-bold text-white mb-2">Blog Post Three</h3><p class="text-gray-400">Coming Soon</p></div></div>
             </div>
-             <!-- === EMAIL FOR BLOG SUBSCRIBE UPDATED === -->
              <a href="mailto:ima6hisheksingh@gmail.com?subject=Subscribe to your Blog&body=Hi Abhishek, I'd like to subscribe to your blog updates!" class="mt-8 bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Subscribe to my Blog</a>
             <a href="#research" class="scroll-arrow-down mt-16"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -255,6 +289,11 @@
             </div>
         </section>
     </main>
+
+    <!-- === COPYRIGHT FOOTER ADDED === -->
+    <footer class="text-center py-8 text-gray-500 text-sm z-10 relative">
+        <p>&copy; 2025 Abhishek Singh. All Rights Reserved.</p>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -416,3 +455,4 @@
     </script>
 </body>
 </html>
+" selected. I'll be sure to use it for my respon
