@@ -55,5 +55,25 @@
       "imageUrl": "https://placehold.co/600x600/0c0a18/ec4899?text=Conference",
       "color": "pink"
     }
+  ],
+  "blogs": [
+    {
+      "title": "Blog Post One",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image",
+      "color": "blue"
+    },
+    {
+      "title": "Blog Post Two",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image",
+      "color": "purple"
+    },
+    {
+      "title": "Blog Post Three",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image",
+      "color": "pink"
+    }
   ]
 }
