@@ -1,11 +1,10 @@
 {
   "projects": [
-    "projects": [
     {
       "title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
       "description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/refs/heads/main/warehouse%20project%201.webp",
-      "link": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/assets/project%20one%20portfolio.pdf",
+      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/warehouse%20project%201.webp",
+      "link": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/raw/main/assets/project%20one%20portfolio.pdf",
       "color": "blue"
     },
     {
@@ -67,14 +66,14 @@
     {
       "title": "My First Blog..",
       "description": "I don't know how to write a blog, but I want to express the thoughts I never have before.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/refs/heads/main/Bharat.webp",
+      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/Bharat.webp",
       "link": "https://open.substack.com/pub/abhishek8ingh/p/my-first-blog?r=66l85i&utm_campaign=post&utm_medium=web",
       "color": "blue"
     },
     {
       "title": "If You Really Want a Change",
       "description": "A change for the whole country, not just for your own biases.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/refs/heads/main/old%20temples%20b2.webp",
+      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/old%20temples%20b2.webp",
       "link": "https://open.substack.com/pub/abhishek8ingh/p/if-you-really-want-a-change?r=66l85i&utm_campaign=post&utm_medium=web",
       "color": "purple"
     },
