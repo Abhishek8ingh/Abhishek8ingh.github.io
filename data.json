@@ -1,12 +1,14 @@
 {
   "projects": [
+    "projects": [
     {
-      "title": "Project One",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image",
-      "link": "#",
+      "title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
+      "description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
+      "imageUrl": "https://...your-cover-image-url.png",
+      "link": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/assets/project%20one%20portfolio.pdf",
       "color": "blue"
     },
+...
     {
       "title": "Project Two",
       "description": "Coming Soon",
