@@ -63,7 +63,7 @@
         #name-logo span { transition: opacity 0.3s ease-in-out; }
         .font-namaste { font-family: 'Tangerine', cursive; font-size: 2.8rem; line-height: 1; }
 
-        /* === VOICE ASSISTANT STYLES ADDED HERE === */
+        /* === VOICE ASSISTANT STYLES === */
         #assistant-container {
             position: fixed;
             bottom: 1rem;
@@ -218,7 +218,6 @@
         </a>
     </div>
 
-    <!-- === VOICE ASSISTANT HTML ADDED HERE === -->
     <div id="assistant-container">
         <div id="alien-face" class="alien-svg">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M 60 100 C 60 50, 140 50, 140 100 C 140 150, 115 170, 100 170 C 85 170, 60 150, 60 100 Z" fill="#4B5563"/><path d="M 65 100 C 65 55, 135 55, 135 100 C 135 145, 115 165, 100 165 C 85 165, 65 145, 65 100 Z" fill="#D1D5DB"/><ellipse cx="85" cy="100" rx="20" ry="25" fill="black"/><ellipse cx="115" cy="100" rx="20" ry="25" fill="black"/><path d="M95 140 L 105 140" stroke="#4B5563" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
@@ -362,6 +361,7 @@
     </main>
 
     <footer class="text-center py-8 text-gray-500 text-sm z-10 relative">
+        <p> Desktop browser recommended for full experience.</p>
         <p>&copy; 2025 Abhishek Singh. All Rights Reserved.</p>
     </footer>
 
@@ -565,7 +565,10 @@
                 listeningOrb.classList.remove('active');
             };
 
+            // === UPDATED: ACTIVATE ON HOVER AND CLICK ===
             assistantContainer.addEventListener('click', activateAssistant);
+            assistantContainer.addEventListener('mouseenter', activateAssistant);
+
             recognition.onend = deactivateAssistant;
             recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
 
@@ -576,11 +579,33 @@
             };
 
             function handleCommand(command) {
-                if (command.includes('github') || command.includes('hub') || command.includes('git')) {
+                // === NEW: NAVIGATION COMMANDS ===
+                if (command.includes('about')) {
+                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('education')) {
+                    document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('skill')) {
+                    document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('project')) {
+                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('blog')) {
+                    document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('research')) {
+                    document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('tweet')) {
+                    document.getElementById('tweets').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('gallery') || command.includes('photo')) {
+                    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+                } else if (command.includes('contact')) {
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // === EXISTING LINK COMMANDS ===
+                else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
                     window.open('https://github.com/fromorionarm', '_blank');
                 } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
                     window.open('https://x.com/abhishek8ingh', '_blank');
-                } else if (command.includes('blog') || command.includes('substack')) {
+                } else if (command.includes('substack')) { // Removed 'blog' from here to avoid conflict
                     window.open('https://substack.com/@abhishek8ingh', '_blank');
                 } else if (command.includes('mail') || command.includes('gmail')) {
                     window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
