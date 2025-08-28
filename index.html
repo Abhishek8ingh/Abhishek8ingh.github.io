@@ -591,7 +591,19 @@
             };
 
             function handleCommand(command) {
-                if (command.includes('about')) {
+                // === CORRECTED COMMAND LOGIC ===
+                // Check for specific, multi-word commands first to avoid conflicts.
+                if (command.includes('blog account') || command.includes('substack')) {
+                    window.open('https://substack.com/@abhishek8ingh', '_blank');
+                } else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
+                    window.open('https://github.com/fromorionarm', '_blank');
+                } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
+                    window.open('https://x.com/abhishek8ingh', '_blank');
+                } else if (command.includes('mail') || command.includes('gmail')) {
+                    window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
+                } 
+                // Then, check for single-word navigation commands.
+                else if (command.includes('about')) {
                     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('education')) {
                     document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
@@ -599,8 +611,6 @@
                     document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('project')) {
                     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-                } else if (command.includes('blog account') || command.includes('substack')) {
-                    window.open('https://substack.com/@abhishek8ingh', '_blank');
                 } else if (command.includes('blog')) {
                     document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('research')) {
@@ -611,14 +621,6 @@
                     document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
                 } else if (command.includes('contact')) {
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                }
-                
-                else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
-                    window.open('https://github.com/fromorionarm', '_blank');
-                } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
-                    window.open('https://x.com/abhishek8ingh', '_blank');
-                } else if (command.includes('mail') || command.includes('gmail')) {
-                    window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
                 } else {
                     showStatus('Command not recognized.');
                 }
