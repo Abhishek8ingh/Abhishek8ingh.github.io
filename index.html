@@ -175,6 +175,62 @@
         }
         .form-input:focus { outline: none; border-color: #3B82F6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
 
+        /* === CAROUSEL STYLES === */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 64rem; /* max-w-6xl */
+        }
+        .carousel-wrapper {
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            gap: 2rem; /* gap-8 */
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .carousel > * {
+            flex-shrink: 0;
+            width: calc((100% - 4rem) / 3); /* 3 items with gap-8 */
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(31, 41, 55, 0.5);
+            border: 1px solid #4B5563;
+            color: white;
+            border-radius: 9999px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            z-index: 10;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(59, 130, 246, 0.5);
+        }
+        .carousel-btn.prev { left: -4rem; }
+        .carousel-btn.next { right: -4rem; }
+        @media (max-width: 1200px) {
+            .carousel-btn.prev { left: -1rem; }
+            .carousel-btn.next { right: -1rem; }
+        }
+        @media (max-width: 768px) {
+            .carousel > * { width: calc((100% - 2rem) / 2); } /* 2 items on medium screens */
+        }
+        @media (max-width: 640px) {
+            .carousel > * { width: 90%; } /* 1 item on small screens */
+        }
+
         /* === GALLERY MODAL STYLES === */
         #gallery-modal {
             position: fixed;
@@ -182,7 +238,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -195,23 +252,42 @@
             opacity: 1;
             pointer-events: all;
         }
-        #gallery-modal img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
+        #modal-content {
+            background: #1F2937;
             border-radius: 8px;
-            border: 2px solid #4B5563;
+            border: 1px solid #4B5563;
+            max-width: 60vw;
+            max-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #gallery-modal img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            flex-shrink: 1;
+            min-height: 0;
+        }
+        #modal-caption {
+            padding: 1rem;
+            text-align: center;
+            color: #D1D5DB;
+            font-size: 0.9rem;
+            flex-shrink: 0;
         }
         #gallery-modal .close-btn {
             position: absolute;
-            top: 2rem;
+            top: 1rem;
             right: 2rem;
             font-size: 3rem;
             color: white;
             cursor: pointer;
             line-height: 1;
         }
-
+        @media (max-width: 768px) {
+            #modal-content { max-width: 90vw; }
+        }
 
         @media (max-width: 1024px) { .blinking-tweet { display: none !important; } }
         @media (max-width: 768px) {
@@ -346,8 +422,12 @@
         <section id="projects" class="section">
             <a href="#skills" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Projects</h2>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <!-- Projects will be loaded here by JavaScript -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="projects-grid" class="carousel"></div>
+                </div>
+                <button class="carousel-btn prev" data-carousel="projects-grid">&lt;</button>
+                <button class="carousel-btn next" data-carousel="projects-grid">&gt;</button>
             </div>
             <a href="#blog" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -355,8 +435,12 @@
         <section id="blog" class="section">
             <a href="#projects" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Blog</h2>
-            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <!-- Blog posts will be loaded here by JavaScript -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="blog-grid" class="carousel"></div>
+                </div>
+                <button class="carousel-btn prev" data-carousel="blog-grid">&lt;</button>
+                <button class="carousel-btn next" data-carousel="blog-grid">&gt;</button>
             </div>
              <a href="mailto:ima6hisheksingh@gmail.com?subject=Subscribe to your Blog&body=Hi Abhishek, I'd like to subscribe to your blog updates!" class="mt-8 bg-blue-600/50 hover:bg-blue-500/50 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300">Subscribe to my Blog</a>
             <a href="#research" class="scroll-arrow-down mt-16"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
@@ -365,8 +449,12 @@
         <section id="research" class="section">
             <a href="#blog" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Research</h2>
-            <div id="research-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <!-- Research papers will be loaded here by JavaScript -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="research-grid" class="carousel"></div>
+                </div>
+                <button class="carousel-btn prev" data-carousel="research-grid">&lt;</button>
+                <button class="carousel-btn next" data-carousel="research-grid">&gt;</button>
             </div>
             <a href="#tweets" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -386,8 +474,12 @@
         <section id="gallery" class="section">
             <a href="#tweets" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Gallery</h2>
-            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
-                <!-- Gallery images will be loaded here by JavaScript -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="gallery-grid" class="carousel"></div>
+                </div>
+                <button class="carousel-btn prev" data-carousel="gallery-grid">&lt;</button>
+                <button class="carousel-btn next" data-carousel="gallery-grid">&gt;</button>
             </div>
             <a href="#contact" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
@@ -411,10 +503,12 @@
         <p>&copy; 2025 Abhishek Singh. All Rights Reserved.</p>
     </footer>
 
-    <!-- === GALLERY MODAL HTML === -->
     <div id="gallery-modal">
         <span class="close-btn">&times;</span>
-        <img id="modal-image" src="" alt="Enlarged gallery image">
+        <div id="modal-content">
+            <img id="modal-image" src="" alt="Enlarged gallery image">
+            <p id="modal-caption"></p>
+        </div>
     </div>
 
     <script>
@@ -423,17 +517,18 @@
             fetch('data.json')
                 .then(response => response.json())
                 .then(data => {
-                    populateGrid('projects-grid', data.projects, createProjectCard);
-                    populateGrid('research-grid', data.research, createResearchCard);
+                    populateGrid('projects-grid', data.projects, createLinkedCard);
+                    populateGrid('research-grid', data.research, createLinkedCard);
                     populateGrid('gallery-grid', data.gallery, createGalleryCard);
-                    populateGrid('blog-grid', data.blogs, createBlogCard);
+                    populateGrid('blog-grid', data.blogs, createLinkedCard);
                 })
                 .catch(error => console.error('Error loading data:', error));
 
             function populateGrid(gridId, items, cardCreator) {
                 const grid = document.getElementById(gridId);
                 if (grid) {
-                    grid.innerHTML = items.map(cardCreator).join('');
+                    // Reverse the items to show latest first
+                    grid.innerHTML = items.slice().reverse().map(cardCreator).join('');
                 }
             }
 
@@ -454,13 +549,9 @@
                     </a>`;
             }
 
-            const createProjectCard = createLinkedCard;
-            const createBlogCard = createLinkedCard;
-            const createResearchCard = createLinkedCard;
-
             function createGalleryCard(item) {
                 return `
-                    <div class="gallery-item bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}" data-src="${item.imageUrl}">
+                    <div class="gallery-item bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}" data-src="${item.imageUrl}" data-caption="${item.caption}">
                         <img src="${item.imageUrl}" class="w-full h-64 object-cover cursor-pointer">
                         <div class="p-4">
                             <p class="text-gray-300 text-sm">${item.caption}</p>
@@ -468,13 +559,31 @@
                     </div>`;
             }
 
+            // --- Carousel Logic ---
+            document.querySelectorAll('.carousel-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const carousel = document.getElementById(button.dataset.carousel);
+                    const itemWidth = carousel.querySelector(':scope > *').offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(carousel).gap);
+                    const scrollAmount = itemWidth + gap;
+                    
+                    if (button.classList.contains('next')) {
+                        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    } else {
+                        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                    }
+                });
+            });
+
             // --- Gallery Modal Logic ---
             const modal = document.getElementById('gallery-modal');
             const modalImage = document.getElementById('modal-image');
+            const modalCaption = document.getElementById('modal-caption');
             document.addEventListener('click', function(e) {
                 if (e.target.closest('.gallery-item')) {
                     const item = e.target.closest('.gallery-item');
                     modalImage.src = item.dataset.src;
+                    modalCaption.textContent = item.dataset.caption;
                     modal.classList.add('visible');
                 }
                 if (e.target === modal || e.target.classList.contains('close-btn')) {
