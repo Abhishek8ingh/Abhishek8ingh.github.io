@@ -1,0 +1,59 @@
+{
+  "projects": [
+    {
+      "title": "Project One",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image",
+      "color": "blue"
+    },
+    {
+      "title": "Project Two",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
+      "color": "purple"
+    },
+    {
+      "title": "Project Three",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
+      "color": "pink"
+    }
+  ],
+  "research": [
+    {
+      "title": "Research Paper One",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image",
+      "color": "blue"
+    },
+    {
+      "title": "Research Paper Two",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image",
+      "color": "purple"
+    },
+    {
+      "title": "Research Paper Three",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+      "color": "pink"
+    }
+  ],
+  "gallery": [
+    {
+      "caption": "Caption for the science exhibition photo.",
+      "imageUrl": "https://placehold.co/600x600/0c0a18/3b82f6?text=Exhibition",
+      "color": "blue"
+    },
+    {
+      "caption": "A snapshot from a recent project in the lab.",
+      "imageUrl": "https://placehold.co/600x600/0c0a18/8b5cf6?text=Lab+Work",
+      "color": "purple"
+    },
+    {
+      "caption": "Networking at the annual tech conference.",
+      "imageUrl": "https://placehold.co/600x600/0c0a18/ec4899?text=Conference",
+      "color": "pink"
+    }
+  ]
+}
