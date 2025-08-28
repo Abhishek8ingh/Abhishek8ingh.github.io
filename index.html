@@ -169,34 +169,46 @@
         }
         .star:hover .skill-name, .star.touched .skill-name { opacity: 1; }
 
+        @keyframes blink-text {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .star.blink-once .skill-name {
+            animation: blink-text 2s ease-in-out;
+        }
+
         .form-input {
             background: rgba(17, 24, 39, 0.5); border: 1px solid #4B5563; color: white;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         .form-input:focus { outline: none; border-color: #3B82F6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
 
-        /* === CAROUSEL STYLES === */
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 64rem; /* max-w-6xl */
+            max-width: 64rem;
         }
         .carousel-wrapper {
             overflow: hidden;
         }
         .carousel {
             display: flex;
-            gap: 2rem; /* gap-8 */
+            gap: 2rem;
+            /* === MOBILE SCROLLING FIX === */
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
             scroll-behavior: smooth;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         .carousel::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
         }
         .carousel > * {
             flex-shrink: 0;
-            width: calc((100% - 4rem) / 3); /* 3 items with gap-8 */
+            width: calc((100% - 4rem) / 3);
+            scroll-snap-align: start;
         }
         .carousel-btn {
             position: absolute;
@@ -225,13 +237,12 @@
             .carousel-btn.next { right: -1rem; }
         }
         @media (max-width: 768px) {
-            .carousel > * { width: calc((100% - 2rem) / 2); } /* 2 items on medium screens */
+            .carousel > * { width: calc((100% - 2rem) / 2); }
         }
         @media (max-width: 640px) {
-            .carousel > * { width: 90%; } /* 1 item on small screens */
+            .carousel > * { width: 90%; }
         }
 
-        /* === GALLERY MODAL STYLES === */
         #gallery-modal {
             position: fixed;
             top: 0;
@@ -527,7 +538,6 @@
             function populateGrid(gridId, items, cardCreator) {
                 const grid = document.getElementById(gridId);
                 if (grid) {
-                    // Reverse the items to show latest first
                     grid.innerHTML = items.slice().reverse().map(cardCreator).join('');
                 }
             }
@@ -850,6 +860,15 @@
                                 link.classList.add('active');
                             }
                         });
+                        if (entry.target.id === 'education' || entry.target.id === 'skills') {
+                            const stars = entry.target.querySelectorAll('.star');
+                            stars.forEach(star => {
+                                star.classList.add('blink-once');
+                                star.addEventListener('animationend', () => {
+                                    star.classList.remove('blink-once');
+                                }, { once: true });
+                            });
+                        }
                     }
                 });
             }, observerOptions);
