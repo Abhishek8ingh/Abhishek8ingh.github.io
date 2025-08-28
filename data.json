@@ -24,8 +24,8 @@
   ],
   "research": [
     {
-      "title": "Research Paper One",
-      "description": "Coming Soon",
+      "title": "Optimizing Supply Chain Logistics in Manufacturing to Increase Warehouse Efficiency Through Storage Optimization",
+      "description": "This research focuses on optimizing supply chain logistics in manufacturing by improving warehouse efficiency through effective storage optimization.",
       "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image",
       "link": "#",
       "color": "blue"
@@ -33,8 +33,8 @@
     {
       "title": "Research Paper Two",
       "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image",
-      "link": "#",
+      "imageUrl": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/assets/warehouse%20paper%201.webp",
+      "link": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/assets/1st%20research%20paper.pdf",
       "color": "purple"
     },
     {
