@@ -63,11 +63,76 @@
         #name-logo span { transition: opacity 0.3s ease-in-out; }
         .font-namaste { font-family: 'Tangerine', cursive; font-size: 2.8rem; line-height: 1; }
 
-        @keyframes blink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
+        /* === VOICE ASSISTANT STYLES ADDED HERE === */
+        #assistant-container {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            z-index: 50;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
         }
-        .alien-eye { animation: blink 5s infinite; transform-origin: center; }
+        .alien-svg, .listening-orb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .listening-orb {
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+        .listening-orb.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .alien-svg.inactive {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(25px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(25px) rotate(-360deg); }
+        }
+        @keyframes pulse-orb {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .orb-center {
+            position: absolute; top: 50%; left: 50%; width: 25px; height: 25px;
+            background: #3B82F6; border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-orb 2s infinite ease-in-out;
+        }
+        .orb-dot {
+            position: absolute; top: 50%; left: 50%; width: 10px; height: 10px;
+            background: #60A5FA; border-radius: 50%;
+            margin-left: -5px; margin-top: -5px;
+        }
+        .orb-dot:nth-child(2) { animation: orbit 3s linear infinite; animation-delay: 0s; }
+        .orb-dot:nth-child(3) { animation: orbit 3s linear infinite; animation-delay: -1s; }
+        .orb-dot:nth-child(4) { animation: orbit 3s linear infinite; animation-delay: -2s; }
+        #assistant-status {
+            position: fixed;
+            bottom: 2rem;
+            left: 6rem;
+            background: rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: #9CA3AF;
+            font-size: 0.8rem;
+            z-index: 49;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #assistant-status.visible {
+            opacity: 1;
+        }
+
 
         @keyframes fly-across { 0% { transform: translateX(-20vw) translateY(20vh) rotate(-15deg); } 100% { transform: translateX(120vw) translateY(10vh) rotate(15deg); } }
         @keyframes fly-across-2 { 0% { transform: translateX(-20vw) translateY(70vh) rotate(10deg) scale(0.7); } 100% { transform: translateX(120vw) translateY(80vh) rotate(-10deg) scale(0.7); } }
@@ -153,11 +218,16 @@
         </a>
     </div>
 
-    <div class="fixed bottom-4 left-4 z-50 w-20 h-20 opacity-90"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M 60 100 C 60 50, 140 50, 140 100 C 140 150, 115 170, 100 170 C 85 170, 60 150, 60 100 Z" fill="#4B5563"/><path d="M 65 100 C 65 55, 135 55, 135 100 C 135 145, 115 165, 100 165 C 85 165, 65 145, 65 100 Z" fill="#D1D5DB"/><ellipse cx="85" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/><ellipse cx="115" cy="100" rx="20" ry="25" fill="black" class="alien-eye"/><path d="M95 140 L 105 140" stroke="#4B5563" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
-
-    <div class="background-ufo"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g><defs><radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" /><stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" /></radialGradient></defs></svg></div>
-    <div class="background-ufo ufo-2"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
-    <div class="background-ufo ufo-3"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
+    <!-- === VOICE ASSISTANT HTML ADDED HERE === -->
+    <div id="assistant-container">
+        <div id="alien-face" class="alien-svg">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M 60 100 C 60 50, 140 50, 140 100 C 140 150, 115 170, 100 170 C 85 170, 60 150, 60 100 Z" fill="#4B5563"/><path d="M 65 100 C 65 55, 135 55, 135 100 C 135 145, 115 165, 100 165 C 85 165, 65 145, 65 100 Z" fill="#D1D5DB"/><ellipse cx="85" cy="100" rx="20" ry="25" fill="black"/><ellipse cx="115" cy="100" rx="20" ry="25" fill="black"/><path d="M95 140 L 105 140" stroke="#4B5563" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div id="listening-orb" class="listening-orb">
+            <div class="orb-center"></div><div class="orb-dot"></div><div class="orb-dot"></div><div class="orb-dot"></div>
+        </div>
+    </div>
+    <div id="assistant-status"></div>
 
     <main>
         <section id="about" class="section">
@@ -451,6 +521,73 @@
                 e.preventDefault();
                 showNamaste(2000);
             });
+
+            // --- Voice Assistant Script ---
+            const assistantContainer = document.getElementById('assistant-container');
+            const alienFace = document.getElementById('alien-face');
+            const listeningOrb = document.getElementById('listening-orb');
+            const statusEl = document.getElementById('assistant-status');
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                assistantContainer.style.display = 'none';
+                return;
+            }
+
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            let isListening = false;
+
+            const showStatus = (text) => {
+                statusEl.textContent = text;
+                statusEl.classList.add('visible');
+                setTimeout(() => {
+                    statusEl.classList.remove('visible');
+                }, 3000);
+            };
+
+            const activateAssistant = () => {
+                if (isListening) return;
+                isListening = true;
+                alienFace.classList.add('inactive');
+                listeningOrb.classList.add('active');
+                showStatus('Listening...');
+                recognition.start();
+            };
+
+            const deactivateAssistant = () => {
+                isListening = false;
+                alienFace.classList.remove('inactive');
+                listeningOrb.classList.remove('active');
+            };
+
+            assistantContainer.addEventListener('click', activateAssistant);
+            recognition.onend = deactivateAssistant;
+            recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
+
+            recognition.onresult = (event) => {
+                const command = event.results[0][0].transcript.toLowerCase();
+                showStatus(`Heard: "${command}"`);
+                handleCommand(command);
+            };
+
+            function handleCommand(command) {
+                if (command.includes('github') || command.includes('hub') || command.includes('git')) {
+                    window.open('https://github.com/fromorionarm', '_blank');
+                } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
+                    window.open('https://x.com/abhishek8ingh', '_blank');
+                } else if (command.includes('blog') || command.includes('substack')) {
+                    window.open('https://substack.com/@abhishek8ingh', '_blank');
+                } else if (command.includes('mail') || command.includes('gmail')) {
+                    window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
+                } else {
+                    showStatus('Command not recognized.');
+                }
+            }
         });
     </script>
 </body>
