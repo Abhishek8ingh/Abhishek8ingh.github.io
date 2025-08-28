@@ -4,18 +4,21 @@
       "title": "Project One",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Project+Image",
+      "link": "#",
       "color": "blue"
     },
     {
       "title": "Project Two",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
+      "link": "#",
       "color": "purple"
     },
     {
       "title": "Project Three",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
+      "link": "#",
       "color": "pink"
     }
   ],
@@ -24,18 +27,21 @@
       "title": "Research Paper One",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Research+Image",
+      "link": "#",
       "color": "blue"
     },
     {
       "title": "Research Paper Two",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Research+Image",
+      "link": "#",
       "color": "purple"
     },
     {
       "title": "Research Paper Three",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+      "link": "#",
       "color": "pink"
     }
   ],
@@ -61,18 +67,21 @@
       "title": "Blog Post One",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/3b82f6?text=Blog+Image",
+      "link": "#",
       "color": "blue"
     },
     {
       "title": "Blog Post Two",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Blog+Image",
+      "link": "#",
       "color": "purple"
     },
     {
       "title": "Blog Post Three",
       "description": "Coming Soon",
       "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Blog+Image",
+      "link": "#",
       "color": "pink"
     }
   ]
