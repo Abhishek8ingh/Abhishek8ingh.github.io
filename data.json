@@ -45,27 +45,43 @@
       "color": "pink"
     }
   ],
+
   "gallery": [
+    
+   { 
+     "_comment": "Post 1",
+    "imageUrl": [
+        "assets/Made%20in%20india.png?raw=true"
+    ],
+    "caption": "Just uploaded to test this feature",
+    "color": "blue"
+},
     {
-      "caption": "Just uploaded to test this feature",
-      "imageUrl": "assets/Made%20in%20india.png?raw=true",
-      "color": "blue"
-    },
-    {
-      "caption": "This was my first practical in the first year of college.",
-      "imageUrl": "assets/College%20first%20exp.jpg?raw=true",
-      "color": "purple"
-    },
+      "_comment": "Post 2",
+    "imageUrl": [
+        "assets/College%20first%20exp.jpg?raw=true"
+    ],
+    "caption": "This was my first practical in the first year of college.",
+    "color": "blue"
+},
      {
-      "caption": "Somthing coming soon",
-      "imageUrl": "https://placehold.co/600x600/0c0a18/ec4899?text=Conference",
-      "color": "red"
-     },
+       "_comment": "Post 3",
+    "imageUrl": [
+        "assets/just-one-photo.jpg"
+    ],
+    "caption": "Just a single photo.",
+    "color": "blue"
+},
     {
-      "caption": "Networking at the annual tech conference.",
-      "imageUrl": "https://placehold.co/600x600/0c0a18/ec4899?text=Conference",
-      "color": "pink"
-    }
+      "_comment": "Post 4",
+    "imageUrl": [
+        "assets/photo-a.jpg",
+        "assets/photo-b.jpg",
+        "assets/photo-c.jpg"
+    ],
+    "caption": "A collection of three photos.",
+    "color": "purple"
+}
   ],
   "blogs": [
     {
