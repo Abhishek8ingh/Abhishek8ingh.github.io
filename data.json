@@ -48,7 +48,7 @@
   "gallery": [
     {
       "caption": "Just uploaded to test this feature",
-      "imageUrl": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/assets/Made%20in%20india.png?raw=true",
+      "imageUrl": "assets/Made%20in%20india.png?raw=true",
       "color": "blue"
     },
     {
