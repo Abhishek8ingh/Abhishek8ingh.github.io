@@ -1,40 +1,8 @@
-// A name for our cache
-const CACHE_NAME = 'portfolio-cache-v1';
+// This is a basic service worker that only includes the fetch handler,
+// which is the minimum requirement for the "Add to Home Screen" prompt.
 
-// The files we want to cache
-const urlsToCache = [
-  './',
-  './index.html', // Make sure this matches your HTML file name
-  './manifest.json',
-  './images/icon-192.png',
-  './images/icon-512.png'
-  // Add any CSS or other JS files here if you have them
-  // e.g., './style.css'
-];
-
-// 1. Installing the service worker
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
+self.addEventListener('fetch', (event) => {
+  // This event handler is intentionally left empty.
+  // Its presence is enough to make the app installable.
 });
 
-// 2. Intercepting network requests
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response from cache
-        if (response) {
-          return response;
-        }
-        // Not in cache - fetch from network
-        return fetch(event.request);
-      }
-    )
-  );
-});
