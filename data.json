@@ -75,11 +75,11 @@
     {
       "_comment": "Post 4",
     "imageUrl": [
-        "assets/photo-a.jpg",
-        "assets/photo-b.jpg",
-        "assets/photo-c.jpg"
+        "image/Pet%20dog%201.jpg",
+        "image/Pet%20dog%202.jpg",
+        "image/Pet%20dog%203.jpg"
     ],
-    "caption": "A collection of three photos.",
+    "caption": "Uploaded to check this feature btw this is my pet name pumamessi",
     "color": "purple"
 }
   ],
