@@ -198,10 +198,9 @@
         .carousel {
             display: flex;
             gap: 2rem;
-            /* === MOBILE SCROLLING FIX === */
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -248,21 +247,21 @@
         }
 
        #gallery-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 300; /* <-- This is the only change */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 300;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
         #gallery-modal.visible {
             opacity: 1;
             pointer-events: all;
@@ -317,49 +316,49 @@
             .text-5xl { font-size: 2rem; }
         }
         /* Style for the multi-image icon on a gallery card */
-.multi-image-icon {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    width: 2rem;
-    height: 2rem;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    pointer-events: none; /* Let clicks go through to the card */
-}
+        .multi-image-icon {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 2rem;
+            height: 2rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            pointer-events: none; /* Let clicks go through to the card */
+        }
 
-/* Styles for the "All Photos" grid modal */
-#all-photos-modal.visible {
-    opacity: 1;
-    pointer-events: all;
-}
-.all-photos-item {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-}
-.all-photos-item .caption-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
-    padding: 1.5rem 0.75rem 0.75rem;
-    font-size: 0.8rem;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.all-photos-item:hover .caption-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
+        /* Styles for the "All Photos" grid modal */
+        #all-photos-modal.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .all-photos-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .all-photos-item .caption-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem 0.75rem 0.75rem;
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .all-photos-item:hover .caption-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -391,24 +390,24 @@
     </a>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-    <!-- 1. GitHub Link -->
-    <a href="https://github.com/fromorionarm" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-600/50 transition-all duration-300 transform hover:scale-110">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-    </a>
-    
-    <!-- 2. X (Twitter) Link -->
-    <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
+        <!-- 1. GitHub Link -->
+        <a href="https://github.com/fromorionarm" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-600/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        
+        <!-- 2. X (Twitter) Link -->
+        <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
 
-    <!-- 3. Substack Link (The one we just fixed) -->
-    <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
-        <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fba81cfff-7bc5-4aef-866e-864d0942c42d_1000x1000.png" alt="Substack Logo" class="w-7 h-7">
-    </a>
-    
-    <!-- 4. Gmail Link (The one you are restoring) -->
-    <a href="mailto:abhisheksinghmailid@gmail.com" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-red-500/50 transition-all duration-300 transform hover:scale-110">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    </a>
-</div>
+        <!-- 3. Substack Link -->
+        <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
+            <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fba81cfff-7bc5-4aef-866e-864d0942c42d_1000x1000.png" alt="Substack Logo" class="w-7 h-7">
+        </a>
+        
+        <!-- 4. Gmail Link -->
+        <a href="mailto:abhisheksinghmailid@gmail.com" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-red-500/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+    </div>
 
     <div id="assistant-container">
         <div id="alien-face" class="alien-svg">
@@ -433,7 +432,8 @@
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl">
                     <div class="flex-shrink-0">
                         <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <img src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" alt="Abhishek Singh" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
+                            <!-- CHANGE 1 of 3: Added id, data-alt-src, and cursor-pointer to the img tag -->
+                            <img id="profile-picture" src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" data-alt-src="YOUR_OTHER_PICTURE_URL_HERE" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
                         </div>
                     </div>
                     <div class="text-center md:text-left">
@@ -550,9 +550,9 @@
                 <button class="carousel-btn next" data-carousel="gallery-grid">&gt;</button>
             </div>
              <button id="view-all-gallery-btn" class="mt-8 text-gray-400 border border-gray-600 rounded-full px-8 py-3 flex items-center gap-2 hover:bg-gray-800/50 transition-all duration-300">
-        <span>View All Photos</span>
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-    </button>
+                <span>View All Photos</span>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
             <a href="#contact" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
@@ -583,15 +583,16 @@
             <p id="modal-caption"></p>
         </div>
     </div>
-    <!-- THIS IS THE NEW MODAL YOU ARE ADDING FOR THE FULL GALLERY GRID -->
-<div id="all-photos-modal" class="fixed top-0 left-0 w-full h-full bg-black/90 backdrop-blur-md z-[250] p-8 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-    <span id="all-photos-close-btn" class="absolute top-4 right-8 text-white text-5xl cursor-pointer">&times;</span>
-    <h2 class="text-4xl font-bold text-white text-center mb-8">All Photos</h2>
-    <div id="all-photos-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        <!-- Photos will be inserted here by JavaScript -->
+    
+    <div id="all-photos-modal" class="fixed top-0 left-0 w-full h-full bg-black/90 backdrop-blur-md z-[250] p-8 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
+        <span id="all-photos-close-btn" class="absolute top-4 right-8 text-white text-5xl cursor-pointer">&times;</span>
+        <h2 class="text-4xl font-bold text-white text-center mb-8">All Photos</h2>
+        <div id="all-photos-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <!-- Photos will be inserted here by JavaScript -->
+        </div>
     </div>
-</div>
-<script>
+
+    <script>
     // === START OF THE FINAL, INTEGRATED SCRIPT ===
     document.addEventListener('DOMContentLoaded', () => {
         // --- Dynamic Content Loading (with one addition) ---
@@ -600,7 +601,7 @@
             .then(data => {
                 populateGrid('projects-grid', data.projects, createLinkedCard);
                 populateGrid('research-grid', data.research, createLinkedCard);
-                populateGrid('gallery-grid', data.gallery, createGalleryCard); // This now uses the updated function
+                populateGrid('gallery-grid', data.gallery, createGalleryCard);
                 populateGrid('blog-grid', data.blogs, createLinkedCard);
                 
                 // NEW: This line populates our new "All Photos" grid in the background
@@ -715,13 +716,12 @@
         const viewAllBtn = document.getElementById('view-all-gallery-btn');
         if (viewAllBtn) {
             viewAllBtn.addEventListener('click', () => {
-                // Before showing, we ensure the grid has ALL photos, not just a subset from a multi-post click
                 fetch('data.json').then(r=>r.json()).then(data => populateAllPhotosGrid(data.gallery));
                 allPhotosModal.classList.add('visible');
             });
         }
         
-        // This is a NEW function to build the big grid
+        // --- This is the function for building the "All Photos" grid ---
         function populateAllPhotosGrid(items, isSinglePost = false) {
             const grid = document.getElementById('all-photos-grid');
             const title = allPhotosModal.querySelector('h2');
@@ -733,7 +733,8 @@
             if (isSinglePost) {
                 allImages = items[0].imageUrl.map(imgSrc => ({ src: imgSrc, caption: items[0].caption }));
             } else {
-                items.forEach(item => {
+                // CHANGE 2 of 3: Added .slice().reverse() to show newest posts first
+                items.slice().reverse().forEach(item => {
                     item.imageUrl.forEach(src => {
                         allImages.push({ src: src, caption: item.caption });
                     });
@@ -761,24 +762,14 @@
             let mouse = { x: null, y: null };
             const numStars = window.innerWidth > 768 ? 150 : 50;
 
-            for (let i = 0; i < numStars; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 1.5 + 0.5,
-                });
-            }
+            for (let i = 0; i < numStars; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 }); }
 
             function createMeteor() {
                 meteors.push({
-                    x: Math.random() * canvas.width * 1.5,
-                    y: -10,
-                    length: Math.random() * 100 + 50,
-                    speed: Math.random() * 5 + 5,
-                    opacity: 1
+                    x: Math.random() * canvas.width * 1.5, y: -10,
+                    length: Math.random() * 100 + 50, speed: Math.random() * 5 + 5, opacity: 1
                 });
             }
-
             setInterval(createMeteor, 2000);
 
             const updateMousePosition = (e) => {
@@ -793,23 +784,15 @@
 
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
                 stars.forEach(star => {
-                    let newX = star.x;
-                    let newY = star.y;
+                    let newX = star.x; let newY = star.y;
                     if (mouse.x) {
-                        let dx = mouse.x - newX;
-                        let dy = mouse.y - newY;
+                        let dx = mouse.x - newX; let dy = mouse.y - newY;
                         let distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 150) {
-                            newX -= dx / 10;
-                            newY -= dy / 10;
-                        }
+                        if (distance < 150) { newX -= dx / 10; newY -= dy / 10; }
                     }
-                    ctx.beginPath();
-                    ctx.arc(newX, newY, star.radius, 0, Math.PI * 2);
-                    ctx.fill();
+                    ctx.beginPath(); ctx.arc(newX, newY, star.radius, 0, Math.PI * 2); ctx.fill();
                 });
 
                 meteors.forEach((meteor, index) => {
@@ -817,33 +800,21 @@
                     const gradient = ctx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.length, meteor.y + meteor.length);
                     gradient.addColorStop(0, `rgba(255, 255, 255, ${meteor.opacity})`);
                     gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-                    ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 2;
-                    ctx.moveTo(meteor.x, meteor.y);
-                    ctx.lineTo(meteor.x - meteor.length, meteor.y + meteor.length);
+                    ctx.strokeStyle = gradient; ctx.lineWidth = 2;
+                    ctx.moveTo(meteor.x, meteor.y); ctx.lineTo(meteor.x - meteor.length, meteor.y + meteor.length);
                     ctx.stroke();
-                    meteor.x -= meteor.speed;
-                    meteor.y += meteor.speed;
-                    meteor.opacity -= 0.01;
-                    if (meteor.opacity <= 0) {
-                        meteors.splice(index, 1);
-                    }
+                    meteor.x -= meteor.speed; meteor.y += meteor.speed; meteor.opacity -= 0.01;
+                    if (meteor.opacity <= 0) { meteors.splice(index, 1); }
                 });
             }
 
-            function animate() {
-                draw();
-                requestAnimationFrame(animate);
-            }
+            function animate() { draw(); requestAnimationFrame(animate); }
             animate();
 
             window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                canvas.width = window.innerWidth; canvas.height = window.innerHeight;
                 stars = [];
-                    for (let i = 0; i < numStars; i++) {
-                    stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 });
-                }
+                for (let i = 0; i < numStars; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 }); }
             });
         }
 
@@ -907,96 +878,64 @@
 
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
-            assistantContainer.style.display = 'none';
-            return;
-        }
-
-        const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.lang = 'en-US';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        let isListening = false;
-
-        const showStatus = (text) => {
-            statusEl.textContent = text;
-            statusEl.classList.add('visible');
-            setTimeout(() => {
-                statusEl.classList.remove('visible');
-            }, 3000);
-        };
-
-        const activateAssistant = () => {
-            if (isListening) return;
-            isListening = true;
-            alienFace.classList.add('inactive');
-            listeningOrb.classList.add('active');
-            showStatus('Listening...');
-            recognition.start();
-        };
-
-        const deactivateAssistant = () => {
-            isListening = false;
-            alienFace.classList.remove('inactive');
-            listeningOrb.classList.remove('active');
-        };
-
-        assistantContainer.addEventListener('click', activateAssistant);
-        assistantContainer.addEventListener('mouseenter', activateAssistant);
-
-        recognition.onend = deactivateAssistant;
-        recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
-
-        recognition.onresult = (event) => {
-            const command = event.results[0][0].transcript.toLowerCase();
-            showStatus(`Heard: "${command}"`);
-            handleCommand(command);
-        };
-
-        function handleCommand(command) {
-            if (command.includes('blog account') || command.includes('substack')) {
-                window.open('https://substack.com/@abhishek8ingh', '_blank');
-            } else if (command.includes('github') || command.includes('hub') || command.includes('git')) {
-                window.open('https://github.com/fromorionarm', '_blank');
-            } else if (command.includes('twitter') || command.includes('social media') || command.includes('x account')) {
-                window.open('https://x.com/abhishek8ingh', '_blank');
-            } else if (command.includes('mail') || command.includes('gmail')) {
-                window.location.href = 'mailto:abhisheksinghmailid@gmail.com';
-            } 
-            else if (command.includes('about')) {
-                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('education')) {
-                document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('skill')) {
-                document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('project')) {
-                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('blog')) {
-                document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('research')) {
-                document.getElementById('research').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('tweet')) {
-                document.getElementById('tweets').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('gallery') || command.includes('photo')) {
-                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-            } else if (command.includes('contact')) {
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                showStatus('Command not recognized.');
+            if(assistantContainer) assistantContainer.style.display = 'none';
+        } else {
+            const recognition = new SpeechRecognition();
+            recognition.continuous = false; recognition.lang = 'en-US';
+            recognition.interimResults = false; recognition.maxAlternatives = 1;
+            let isListening = false;
+            const showStatus = (text) => {
+                statusEl.textContent = text; statusEl.classList.add('visible');
+                setTimeout(() => { statusEl.classList.remove('visible'); }, 3000);
+            };
+            const activateAssistant = () => {
+                if (isListening) return;
+                isListening = true; alienFace.classList.add('inactive'); listeningOrb.classList.add('active');
+                showStatus('Listening...'); recognition.start();
+            };
+            const deactivateAssistant = () => {
+                isListening = false; alienFace.classList.remove('inactive'); listeningOrb.classList.remove('active');
+            };
+            assistantContainer.addEventListener('click', activateAssistant);
+            assistantContainer.addEventListener('mouseenter', activateAssistant);
+            recognition.onend = deactivateAssistant;
+            recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
+            recognition.onresult = (event) => {
+                const command = event.results[0][0].transcript.toLowerCase();
+                showStatus(`Heard: "${command}"`); handleCommand(command);
+            };
+            function handleCommand(command) {
+                const commands = {
+                    'blog account': 'https://substack.com/@abhishek8ingh', 'substack': 'https://substack.com/@abhishek8ingh',
+                    'github': 'https://github.com/fromorionarm', 'hub': 'https://github.com/fromorionarm', 'git': 'https://github.com/fromorionarm',
+                    'twitter': 'https://x.com/abhishek8ingh', 'social media': 'https://x.com/abhishek8ingh', 'x account': 'https://x.com/abhishek8ingh',
+                    'mail': 'mailto:abhisheksinghmailid@gmail.com', 'gmail': 'mailto:abhisheksinghmailid@gmail.com',
+                    'about': '#about', 'education': '#education', 'skill': '#skills', 'project': '#projects',
+                    'blog': '#blog', 'research': '#research', 'tweet': '#tweets', 'gallery': '#gallery', 'photo': '#gallery',
+                    'contact': '#contact'
+                };
+                let handled = false;
+                for (const key in commands) {
+                    if (command.includes(key)) {
+                        const target = commands[key];
+                        if (target.startsWith('http') || target.startsWith('mailto')) {
+                            window.open(target, '_blank');
+                        } else {
+                            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+                        }
+                        handled = true;
+                        break;
+                    }
+                }
+                if (!handled) { showStatus('Command not recognized.'); }
             }
         }
-
+        
         // --- Active Nav Link on Scroll ---
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-link');
         
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.5 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1019,27 +958,45 @@
             });
         }, observerOptions);
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        sections.forEach(section => { observer.observe(section); });
 
         // --- Constellation Touch Handler ---
         const stars = document.querySelectorAll('.star');
         stars.forEach(star => {
             star.addEventListener('touchstart', function(e) {
                 e.preventDefault();
-                stars.forEach(s => {
-                    if (s !== star) {
-                        s.classList.remove('touched');
-                    }
-                });
+                stars.forEach(s => { if (s !== star) { s.classList.remove('touched'); } });
                 star.classList.toggle('touched');
             });
         });
 
+        // CHANGE 3 of 3: Added the new Profile Picture Click Handler script
+        // --- Profile Picture Click Handler ---
+        const profilePic = document.getElementById('profile-picture');
+        if (profilePic) {
+            const originalSrc = profilePic.src;
+            const altSrc = profilePic.dataset.altSrc;
+            let isSwapping = false;
+
+            profilePic.addEventListener('click', () => {
+                if (isSwapping || !altSrc || altSrc === "YOUR_OTHER_PICTURE_URL_HERE") {
+                    if (altSrc === "YOUR_OTHER_PICTURE_URL_HERE") {
+                        console.warn("Reminder: Please replace the placeholder URL in the 'data-alt-src' attribute of your profile picture's img tag.");
+                    }
+                    return; 
+                }
+
+                isSwapping = true;
+                profilePic.src = altSrc; // Change to the new picture
+
+                setTimeout(() => {
+                    profilePic.src = originalSrc; // Change back to the original picture
+                    isSwapping = false;
+                }, 2000); // 2000 milliseconds = 2 seconds
+            });
+        }
     });
     // === END OF THE MAIN SCRIPT ===
-</script>
-    
+    </script>
 </body>
 </html>
