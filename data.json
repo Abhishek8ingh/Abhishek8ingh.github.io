@@ -1,109 +1,127 @@
 {
-  "projects": [
-    {
-      "title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
-      "description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/warehouse%20project%201.webp",
-      "link": "Abhishek/Project-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
-      "color": "blue"
-    },
-    {
-      "title": "Project Two",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
-      "link": "#",
-      "color": "purple"
-    },
-    {
-      "title": "Project Three",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
-      "link": "#",
-      "color": "pink"
-    }
-  ],
-  "research": [
-    {
-      "title": "Optimizing Supply Chain Logistics in Manufacturing to Increase Warehouse Efficiency Through Storage Optimization",
-      "description": "This research focuses on optimizing supply chain logistics in manufacturing by improving warehouse efficiency through effective storage optimization.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/refs/heads/main/assets/warehouse%20paper%201.webp",
-      "link": "Abhishek/Paper-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
-      "color": "blue"
-    },
-    {
-      "title": "Research Paper Two",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
-      "link": "#",
-      "color": "purple"
-    },
-    {
-      "title": "Research Paper Three",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
-      "link": "#",
-      "color": "pink"
-    }
-  ],
-
-  "gallery": [
-    
-   { 
-     "_comment": "Post 1",
-    "imageUrl": [
-        "assets/Made%20in%20india.png?raw=true"
-    ],
-    "caption": "Just uploaded to test this feature",
-    "color": "blue"
+"projects": [
+{
+"title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
+"description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
+"imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/warehouse%20project%201.webp",
+"link": "Abhishek/Project-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
+"color": "blue"
 },
-    {
-      "_comment": "Post 2",
-    "imageUrl": [
-        "assets/College%20first%20exp.jpg?raw=true"
-    ],
-    "caption": "This was my first practical in the first year of college.",
-    "color": "blue"
+{
+"title": "Project Two",
+"description": "Coming Soon",
+"imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
+"link": "#",
+"color": "purple"
 },
-     {
-       "_comment": "Post 3",
-    "imageUrl": [
-        "image/coming%20soon.jpeg"
-    ],
-    "caption": "Just a single photo.",
-    "color": "blue"
-},
-    {
-      "_comment": "Post 4",
-    "imageUrl": [
-        "image/Pet%20dog%201.jpg",
-        "image/Pet%20dog%202.jpg",
-        "image/Pet%20dog%203.jpg"
-    ],
-    "caption": "Uploaded to check this feature btw this is my pet name pumamessi",
-    "color": "purple"
+{
+"title": "Project Three",
+"description": "Coming Soon",
+"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
+"link": "#",
+"color": "pink"
 }
-  ],
-  "blogs": [
-    {
-      "title": "My First Blog..",
-      "description": "I don't know how to write a blog, but I want to express the thoughts I never have before.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/Bharat.webp",
-      "link": "https://open.substack.com/pub/abhishek8ingh/p/my-first-blog?r=66l85i&utm_campaign=post&utm_medium=web",
-      "color": "blue"
-    },
-    {
-      "title": "If You Really Want a Change",
-      "description": "A change for the whole country, not just for your own biases.",
-      "imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/old%20temples%20b2.webp",
-      "link": "https://open.substack.com/pub/abhishek8ingh/p/if-you-really-want-a-change?r=66l85i&utm_campaign=post&utm_medium=web",
-      "color": "purple"
-    },
-    {
-      "title": "Everything Starts and Ends with a Fight",
-      "description": "A Fight for Profit, Not for Loss",
-      "imageUrl": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/Elephant%20breaking%20the%20chain.png?raw=true",
-      "link": "https://open.substack.com/pub/abhishek8ingh/p/everything-starts-and-ends-with-a?r=66l85i&utm_campaign=post&utm_medium=web",
-      "color": "pink"
-    }
-  ]
+],
+"research": [
+{
+"title": "Optimizing Supply Chain Logistics in Manufacturing to Increase Warehouse Efficiency Through Storage Optimization",
+"description": "This research focuses on optimizing supply chain logistics in manufacturing by improving warehouse efficiency through effective storage optimization.",
+"imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/refs/heads/main/assets/warehouse%20paper%201.webp",
+"link": "Abhishek/Paper-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
+"color": "blue"
+},
+{
+"title": "Research Paper Two",
+"description": "Coming Soon",
+"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+"link": "#",
+"color": "purple"
+},
+{
+"title": "Research Paper Three",
+"description": "Coming Soon",
+"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+"link": "#",
+"color": "pink"
+}
+],
+"books": [
+{
+"title": "The Martian",
+"description": "A gripping sci-fi novel about an astronaut stranded on Mars and his relentless struggle for survival, grounded in real-world science and problem-solving. A testament to human ingenuity.",
+"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413706054l/18007564.jpg",
+"color": "blue"
+},
+{
+"title": "Zero to One",
+"description": "Peter Thiel's insightful look at how to build a better future by creating new things. A must-read for anyone interested in startups, technology, and innovation.",
+"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1523424939l/18050143.jpg",
+"color": "purple"
+},
+{
+"title": "Sapiens: A Brief History of Humankind",
+"description": "A fascinating exploration of human history, from the Stone Age to the present day, that challenges everything you thought you knew about being human.",
+"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1420585954l/23692271.jpg",
+"color": "pink"
+}
+],
+"gallery": [
+{
+"_comment": "Post 1",
+"imageUrl": [
+"assets/Made%20in%20india.png?raw=true"
+],
+"caption": "Just uploaded to test this feature",
+"color": "blue"
+},
+{
+"_comment": "Post 2",
+"imageUrl": [
+"assets/College%20first%20exp.jpg?raw=true"
+],
+"caption": "This was my first practical in the first year of college.",
+"color": "blue"
+},
+{
+"_comment": "Post 3",
+"imageUrl": [
+"image/coming%20soon.jpeg"
+],
+"caption": "Just a single photo.",
+"color": "blue"
+},
+{
+"_comment": "Post 4",
+"imageUrl": [
+"image/Pet%20dog%201.jpg",
+"image/Pet%20dog%202.jpg",
+"image/Pet%20dog%203.jpg"
+],
+"caption": "Uploaded to check this feature btw this is my pet name pumamessi",
+"color": "purple"
+}
+],
+"blogs": [
+{
+"title": "My First Blog..",
+"description": "I don't know how to write a blog, but I want to express the thoughts I never have before.",
+"imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/Bharat.webp",
+"link": "https://open.substack.com/pub/abhishek8ingh/p/my-first-blog?r=66l85i&utm_campaign=post&utm_medium=web",
+"color": "blue"
+},
+{
+"title": "If You Really Want a Change",
+"description": "A change for the whole country, not just for your own biases.",
+"imageUrl": "https://raw.githubusercontent.com/Abhishek8ingh/Abhishek8ingh.github.io/main/old%20temples%20b2.webp",
+"link": "https://open.substack.com/pub/abhishek8ingh/p/if-you-really-want-a-change?r=66l85i&utm_campaign=post&utm_medium=web",
+"color": "purple"
+},
+{
+"title": "Everything Starts and Ends with a Fight",
+"description": "A Fight for Profit, Not for Loss",
+"imageUrl": "https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/Elephant%20breaking%20the%20chain.png?raw=true",
+"link": "https://open.substack.com/pub/abhishek8ingh/p/everything-starts-and-ends-with-a?r=66l85i&utm_campaign=post&utm_medium=web",
+"color": "pink"
+}
+]
 }
