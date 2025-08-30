@@ -47,21 +47,27 @@
 ],
 "books": [
 {
-"title": "The Martian",
-"description": "A gripping sci-fi novel about an astronaut stranded on Mars and his relentless struggle for survival, grounded in real-world science and problem-solving. A testament to human ingenuity.",
-"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1413706054l/18007564.jpg",
+
+"_comment": "Post 1",
+"title": "The Craft of Research",
+"description": "5th edition by by Wayne C. Booth (Author), Gregory G. Colomb (Author), Joseph M. Williams (Author), Joseph Bizup (Author), William T. FitzGerald (Author)  [Published by University of Chicago Press and ISBN 9780226826677], I will soon provide full discription after completing the book ",
+"imageUrl": "image/pic%20of%20the%20craft...png",
 "color": "blue"
 },
 {
-"title": "Zero to One",
-"description": "Peter Thiel's insightful look at how to build a better future by creating new things. A must-read for anyone interested in startups, technology, and innovation.",
-"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1523424939l/18050143.jpg",
+  
+"_comment": "Post 2",
+"title": "coming soon",
+"description": ".............................",
+"imageUrl": "image/coming%20soon.jpeg",
 "color": "purple"
 },
 {
-"title": "Sapiens: A Brief History of Humankind",
-"description": "A fascinating exploration of human history, from the Stone Age to the present day, that challenges everything you thought you knew about being human.",
-"imageUrl": "https://www.google.com/search?q=https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1420585954l/23692271.jpg",
+  
+"_comment": "Post 3",
+"title": "coming soon",
+"description": ".............................",
+"imageUrl": "image/coming%20soon.jpeg",
 "color": "pink"
 }
 ],
