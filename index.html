@@ -299,8 +299,89 @@
             cursor: pointer;
             line-height: 1;
         }
+
+        /* --- NEW STYLES FOR BOOK MODAL --- */
+        #book-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 300;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #book-modal.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        #book-modal-content {
+            background: #1F2937;
+            border-radius: 8px;
+            border: 1px solid #4B5563;
+            width: 80vw;
+            max-width: 900px;
+            height: 70vh;
+            max-height: 600px;
+            overflow: hidden;
+            display: flex;
+        }
+        #book-modal-image-container {
+            flex-basis: 40%;
+            flex-shrink: 0;
+            background-color: #111827;
+        }
+        #book-modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #book-modal-text {
+            flex-basis: 60%;
+            padding: 2rem;
+            overflow-y: auto;
+            color: #D1D5DB;
+        }
+        #book-modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        #book-modal-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        #book-modal .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            line-height: 1;
+        }
+
         @media (max-width: 768px) {
             #modal-content { max-width: 90vw; }
+            #book-modal-content {
+                flex-direction: column;
+                width: 90vw;
+                height: 80vh;
+            }
+            #book-modal-image-container {
+                flex-basis: 50%;
+            }
+            #book-modal-text {
+                flex-basis: 50%;
+                padding: 1.5rem;
+            }
         }
 
         @media (max-width: 1024px) { .blinking-tweet { display: none !important; } }
@@ -328,9 +409,8 @@
             align-items: center;
             justify-content: center;
             color: white;
-            pointer-events: none; /* Let clicks go through to the card */
+            pointer-events: none;
         }
-
         /* Styles for the "All Photos" grid modal */
         #all-photos-modal.visible {
             opacity: 1;
@@ -376,6 +456,8 @@
                 <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
                 <a href="#blog" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
                 <a href="#research" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
+                <!-- NEW NAVIGATION LINK -->
+                <a href="#books" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Books</a>
                 <a href="#tweets" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
                 <a href="#gallery" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
                 <a href="#contact" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Contact</a>
@@ -390,20 +472,13 @@
     </a>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-        <!-- 1. GitHub Link -->
         <a href="https://github.com/fromorionarm" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-600/50 transition-all duration-300 transform hover:scale-110">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
-        
-        <!-- 2. X (Twitter) Link -->
         <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
-
-        <!-- 3. Substack Link -->
         <a href="https://substack.com/@abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
             <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fba81cfff-7bc5-4aef-866e-864d0942c42d_1000x1000.png" alt="Substack Logo" class="w-7 h-7">
         </a>
-        
-        <!-- 4. Gmail Link -->
         <a href="mailto:abhisheksinghmailid@gmail.com" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-red-500/50 transition-all duration-300 transform hover:scale-110">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
@@ -432,7 +507,6 @@
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl">
                     <div class="flex-shrink-0">
                         <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <!-- CHANGE 1 of 3: Added id, data-alt-src, and cursor-pointer to the img tag -->
                             <img id="profile-picture" src="My%20picture.png?raw=true" data-alt-src="image/Me%20with%20my%20guru.png" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
                         </div>
                     </div>
@@ -524,11 +598,27 @@
                 <button class="carousel-btn prev" data-carousel="research-grid">&lt;</button>
                 <button class="carousel-btn next" data-carousel="research-grid">&gt;</button>
             </div>
+            <!-- UPDATED: Arrow now points to #books -->
+            <a href="#books" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+        </section>
+
+        <!-- NEW SECTION: Recommended Books -->
+        <section id="books" class="section">
+            <a href="#research" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <h2 class="text-5xl font-bold text-white mb-12">Recommended Books</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div id="books-grid" class="carousel"></div>
+                </div>
+                <button class="carousel-btn prev" data-carousel="books-grid">&lt;</button>
+                <button class="carousel-btn next" data-carousel="books-grid">&gt;</button>
+            </div>
             <a href="#tweets" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
         <section id="tweets" class="section">
-            <a href="#research" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
+            <!-- UPDATED: Arrow now points to #books -->
+            <a href="#books" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
             <div class="space-y-6 max-w-2xl w-full">
                 <div class="bg-gray-900/50 border border-gray-700 p-6 rounded-lg"><p class="text-gray-300 italic">"If you have a phobia of water, then dive deep into the ocean."</p></div>
@@ -592,10 +682,24 @@
         </div>
     </div>
 
+    <!-- NEW MODAL FOR BOOKS -->
+    <div id="book-modal">
+        <span class="close-btn">&times;</span>
+        <div id="book-modal-content">
+            <div id="book-modal-image-container">
+                <img id="book-modal-image" src="" alt="Book cover">
+            </div>
+            <div id="book-modal-text">
+                <h3 id="book-modal-title"></h3>
+                <p id="book-modal-description"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
     // === START OF THE FINAL, INTEGRATED SCRIPT ===
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Dynamic Content Loading (with one addition) ---
+        // --- Dynamic Content Loading ---
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
@@ -603,15 +707,15 @@
                 populateGrid('research-grid', data.research, createLinkedCard);
                 populateGrid('gallery-grid', data.gallery, createGalleryCard);
                 populateGrid('blog-grid', data.blogs, createLinkedCard);
+                populateGrid('books-grid', data.books, createBookCard); // <-- NEW
                 
-                // NEW: This line populates our new "All Photos" grid in the background
                 populateAllPhotosGrid(data.gallery);
             })
             .catch(error => console.error('Error loading data:', error));
 
         function populateGrid(gridId, items, cardCreator) {
             const grid = document.getElementById(gridId);
-            if (grid) {
+            if (grid && items) {
                 grid.innerHTML = items.slice().reverse().map(cardCreator).join('');
             }
         }
@@ -633,25 +737,31 @@
                     </div>
                 </a>`;
         }
+        
+        // NEW: Card creator for the Books section
+        function createBookCard(item) {
+             return `
+                <div class="book-item bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue} cursor-pointer" 
+                    data-image-url="${item.imageUrl}" 
+                    data-title="${item.title}" 
+                    data-description="${item.description}">
+                    <img src="${item.imageUrl}" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-white text-center font-semibold text-sm">${item.title}</h3>
+                    </div>
+                </div>`;
+        }
 
-        // --- THIS IS THE UPDATED createGalleryCard FUNCTION ---
+        // UPDATED: createGalleryCard function is the same as before
         function createGalleryCard(item) {
-            const thumbnailUrl = item.imageUrl[0]; // Always use the first image as the cover
+            const thumbnailUrl = item.imageUrl[0];
             const isMultiImage = item.imageUrl.length > 1;
-
             return `
                 <div class="gallery-item bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue} cursor-pointer relative" 
                      data-images='${JSON.stringify(item.imageUrl)}' 
                      data-caption="${item.caption}">
-                    
                     <img src="${thumbnailUrl}" class="w-full h-64 object-cover">
-                    
-                    ${isMultiImage ? `
-                        <div class="multi-image-icon">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5" /></svg>
-                        </div>
-                    ` : ''}
-
+                    ${isMultiImage ? `<div class="multi-image-icon"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5" /></svg></div>` : ''}
                     <div class="p-4">
                         <p class="text-gray-300 text-sm">${item.caption}</p>
                     </div>
@@ -662,10 +772,12 @@
         document.querySelectorAll('.carousel-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const carousel = document.getElementById(button.dataset.carousel);
-                const itemWidth = carousel.querySelector(':scope > *').offsetWidth;
+                if(!carousel) return;
+                const item = carousel.querySelector(':scope > *');
+                if(!item) return;
+                const itemWidth = item.offsetWidth;
                 const gap = parseInt(window.getComputedStyle(carousel).gap);
                 const scrollAmount = itemWidth + gap;
-                
                 if (button.classList.contains('next')) {
                     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 } else {
@@ -674,11 +786,15 @@
             });
         });
 
-        // --- THIS IS THE NEW, COMBINED GALLERY MODAL LOGIC ---
+        // --- MODAL LOGIC (UPDATED to handle Books) ---
         const singleImageModal = document.getElementById('gallery-modal');
         const modalImage = document.getElementById('modal-image');
         const modalCaption = document.getElementById('modal-caption');
         const allPhotosModal = document.getElementById('all-photos-modal');
+        const bookModal = document.getElementById('book-modal');
+        const bookModalImage = document.getElementById('book-modal-image');
+        const bookModalTitle = document.getElementById('book-modal-title');
+        const bookModalDescription = document.getElementById('book-modal-description');
 
         function openSingleImageModal(src, caption) {
             modalImage.src = src;
@@ -686,9 +802,17 @@
             singleImageModal.classList.add('visible');
         }
 
+        function openBookModal(title, description, imageUrl) {
+            bookModalTitle.textContent = title;
+            bookModalDescription.textContent = description;
+            bookModalImage.src = imageUrl;
+            bookModal.classList.add('visible');
+        }
+
         document.addEventListener('click', function(e) {
             const galleryItem = e.target.closest('.gallery-item');
             const allPhotosItem = e.target.closest('.all-photos-item');
+            const bookItem = e.target.closest('.book-item');
 
             if (galleryItem) {
                 const images = JSON.parse(galleryItem.dataset.images);
@@ -700,16 +824,18 @@
                     openSingleImageModal(images[0], caption);
                 }
             }
-
             if (allPhotosItem) {
                 openSingleImageModal(allPhotosItem.dataset.src, allPhotosItem.dataset.caption);
             }
-
-            if (e.target === singleImageModal || e.target.closest('.close-btn')) {
-                singleImageModal.classList.remove('visible');
+            if (bookItem) {
+                openBookModal(bookItem.dataset.title, bookItem.dataset.description, bookItem.dataset.imageUrl);
             }
-            if (e.target === allPhotosModal || e.target.id === 'all-photos-close-btn') {
+
+            // Close modals
+            if (e.target.closest('.close-btn') || e.target === singleImageModal || e.target === allPhotosModal || e.target === bookModal) {
+                singleImageModal.classList.remove('visible');
                 allPhotosModal.classList.remove('visible');
+                bookModal.classList.remove('visible');
             }
         });
 
@@ -721,11 +847,10 @@
             });
         }
         
-        // --- This is the function for building the "All Photos" grid ---
         function populateAllPhotosGrid(items, isSinglePost = false) {
             const grid = document.getElementById('all-photos-grid');
             const title = allPhotosModal.querySelector('h2');
-            if (!grid) return;
+            if (!grid || !items) return;
             
             title.textContent = isSinglePost ? items[0].caption : "All Photos";
             
@@ -733,7 +858,6 @@
             if (isSinglePost) {
                 allImages = items[0].imageUrl.map(imgSrc => ({ src: imgSrc, caption: items[0].caption }));
             } else {
-                // CHANGE 2 of 3: Added .slice().reverse() to show newest posts first
                 items.slice().reverse().forEach(item => {
                     item.imageUrl.forEach(src => {
                         allImages.push({ src: src, caption: item.caption });
@@ -756,32 +880,19 @@
             const ctx = canvas.getContext('2d');
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-
-            let stars = [];
-            let meteors = [];
-            let mouse = { x: null, y: null };
+            let stars = [], meteors = [], mouse = { x: null, y: null };
             const numStars = window.innerWidth > 768 ? 150 : 50;
-
             for (let i = 0; i < numStars; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 }); }
-
-            function createMeteor() {
-                meteors.push({
-                    x: Math.random() * canvas.width * 1.5, y: -10,
-                    length: Math.random() * 100 + 50, speed: Math.random() * 5 + 5, opacity: 1
-                });
-            }
+            function createMeteor() { meteors.push({ x: Math.random() * canvas.width * 1.5, y: -10, length: Math.random() * 100 + 50, speed: Math.random() * 5 + 5, opacity: 1 }); }
             setInterval(createMeteor, 2000);
-
             const updateMousePosition = (e) => {
                 mouse.x = e.clientX || (e.touches && e.touches[0].clientX);
                 mouse.y = e.clientY || (e.touches && e.touches[0].clientY);
             };
-            
             window.addEventListener('mousemove', updateMousePosition);
             window.addEventListener('touchmove', updateMousePosition);
             window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
             window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
-
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
@@ -794,7 +905,6 @@
                     }
                     ctx.beginPath(); ctx.arc(newX, newY, star.radius, 0, Math.PI * 2); ctx.fill();
                 });
-
                 meteors.forEach((meteor, index) => {
                     ctx.beginPath();
                     const gradient = ctx.createLinearGradient(meteor.x, meteor.y, meteor.x - meteor.length, meteor.y + meteor.length);
@@ -807,13 +917,10 @@
                     if (meteor.opacity <= 0) { meteors.splice(index, 1); }
                 });
             }
-
             function animate() { draw(); requestAnimationFrame(animate); }
             animate();
-
             window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-                stars = [];
+                canvas.width = window.innerWidth; canvas.height = window.innerHeight; stars = [];
                 for (let i = 0; i < numStars; i++) { stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 1.5 + 0.5 }); }
             });
         }
@@ -828,8 +935,7 @@
                 const message = document.getElementById('contact-message').value;
                 const subject = `Contact Form Submission from ${name}`;
                 const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-                const mailtoLink = `mailto:abhisheksinghmailid@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-                window.location.href = mailtoLink;
+                window.location.href = `mailto:abhisheksinghmailid@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
             });
         }
 
@@ -839,11 +945,9 @@
         const originalName = nameText.textContent;
         let isAnimating = false;
         let revertTimeout;
-
         const showNamaste = (duration) => {
             if (isAnimating) return;
-            isAnimating = true;
-            clearTimeout(revertTimeout);
+            isAnimating = true; clearTimeout(revertTimeout);
             nameText.style.opacity = '0';
             setTimeout(() => {
                 nameText.innerHTML = 'Namaste &#x1F64F;';
@@ -852,7 +956,6 @@
                 revertTimeout = setTimeout(hideNamaste, duration);
             }, 300);
         };
-
         const hideNamaste = () => {
             nameText.style.opacity = '0';
             setTimeout(() => {
@@ -862,72 +965,104 @@
                 isAnimating = false;
             }, 300);
         };
-
         setTimeout(() => showNamaste(2000), 1500);
         nameLogo.addEventListener('mouseenter', () => showNamaste(2000));
-        nameLogo.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            showNamaste(2000);
-        });
+        nameLogo.addEventListener('touchstart', (e) => { e.preventDefault(); showNamaste(2000); });
 
-        // --- Voice Assistant Script ---
+        // --- Voice Assistant Script (UPDATED with Audio) ---
         const assistantContainer = document.getElementById('assistant-container');
-        const alienFace = document.getElementById('alien-face');
-        const listeningOrb = document.getElementById('listening-orb');
-        const statusEl = document.getElementById('assistant-status');
+        if (assistantContainer) {
+            const alienFace = document.getElementById('alien-face');
+            const listeningOrb = document.getElementById('listening-orb');
+            const statusEl = document.getElementById('assistant-status');
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            
+            let hasPlayedIntro = false; // Prevents intro from playing every time
 
-        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SpeechRecognition) {
-            if(assistantContainer) assistantContainer.style.display = 'none';
-        } else {
-            const recognition = new SpeechRecognition();
-            recognition.continuous = false; recognition.lang = 'en-US';
-            recognition.interimResults = false; recognition.maxAlternatives = 1;
-            let isListening = false;
-            const showStatus = (text) => {
-                statusEl.textContent = text; statusEl.classList.add('visible');
-                setTimeout(() => { statusEl.classList.remove('visible'); }, 3000);
-            };
-            const activateAssistant = () => {
-                if (isListening) return;
-                isListening = true; alienFace.classList.add('inactive'); listeningOrb.classList.add('active');
-                showStatus('Listening...'); recognition.start();
-            };
-            const deactivateAssistant = () => {
-                isListening = false; alienFace.classList.remove('inactive'); listeningOrb.classList.remove('active');
-            };
-            assistantContainer.addEventListener('click', activateAssistant);
-            assistantContainer.addEventListener('mouseenter', activateAssistant);
-            recognition.onend = deactivateAssistant;
-            recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
-            recognition.onresult = (event) => {
-                const command = event.results[0][0].transcript.toLowerCase();
-                showStatus(`Heard: "${command}"`); handleCommand(command);
-            };
-            function handleCommand(command) {
-                const commands = {
-                    'blog account': 'https://substack.com/@abhishek8ingh', 'substack': 'https://substack.com/@abhishek8ingh',
-                    'github': 'https://github.com/fromorionarm', 'hub': 'https://github.com/fromorionarm', 'git': 'https://github.com/fromorionarm',
-                    'twitter': 'https://x.com/abhishek8ingh', 'social media': 'https://x.com/abhishek8ingh', 'x account': 'https://x.com/abhishek8ingh',
-                    'mail': 'mailto:abhisheksinghmailid@gmail.com', 'gmail': 'mailto:abhisheksinghmailid@gmail.com',
-                    'about': '#about', 'education': '#education', 'skill': '#skills', 'project': '#projects',
-                    'blog': '#blog', 'research': '#research', 'tweet': '#tweets', 'gallery': '#gallery', 'photo': '#gallery',
-                    'contact': '#contact'
-                };
-                let handled = false;
-                for (const key in commands) {
-                    if (command.includes(key)) {
-                        const target = commands[key];
-                        if (target.startsWith('http') || target.startsWith('mailto')) {
-                            window.open(target, '_blank');
-                        } else {
-                            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-                        }
-                        handled = true;
-                        break;
-                    }
+            const speak = (text) => {
+                if ('speechSynthesis' in window && text) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    window.speechSynthesis.cancel(); // Stop any previous speech
+                    window.speechSynthesis.speak(utterance);
                 }
-                if (!handled) { showStatus('Command not recognized.'); }
+            };
+
+            if (!SpeechRecognition || !('speechSynthesis' in window)) {
+                assistantContainer.style.display = 'none';
+            } else {
+                const recognition = new SpeechRecognition();
+                recognition.continuous = false; recognition.lang = 'en-US';
+                recognition.interimResults = false; recognition.maxAlternatives = 1;
+                let isListening = false;
+                
+                const showStatus = (text) => {
+                    statusEl.textContent = text; statusEl.classList.add('visible');
+                    setTimeout(() => { statusEl.classList.remove('visible'); }, 3000);
+                };
+                
+                const activateAssistant = () => {
+                    if (isListening) return;
+                    if (!hasPlayedIntro) {
+                        const introText = "Hello. I am the AI Assistant for this portfolio. You can ask me to navigate. For example, say 'go to skills' or 'open GitHub'. For a personal introduction, you can ask 'who is Abhishek Singh'.";
+                        speak(introText);
+                        hasPlayedIntro = true;
+                    }
+                    isListening = true; alienFace.classList.add('inactive'); listeningOrb.classList.add('active');
+                    showStatus('Listening...'); recognition.start();
+                };
+
+                const deactivateAssistant = () => {
+                    isListening = false; alienFace.classList.remove('inactive'); listeningOrb.classList.remove('active');
+                };
+                
+                assistantContainer.addEventListener('click', activateAssistant);
+                
+                recognition.onend = deactivateAssistant;
+                recognition.onerror = (event) => { showStatus(`Error: ${event.error}`); };
+                recognition.onresult = (event) => {
+                    const command = event.results[0][0].transcript.toLowerCase();
+                    showStatus(`Heard: "${command}"`); handleCommand(command);
+                };
+                
+                function handleCommand(command) {
+                    const commands = {
+                        'blog account': 'https://substack.com/@abhishek8ingh', 'substack': 'https://substack.com/@abhishek8ingh',
+                        'github': 'https://github.com/fromorionarm', 'hub': 'https://github.com/fromorionarm', 'git': 'https://github.com/fromorionarm',
+                        'twitter': 'https://x.com/abhishek8ingh', 'social media': 'https://x.com/abhishek8ingh', 'x account': 'https://x.com/abhishek8ingh',
+                        'mail': 'mailto:abhisheksinghmailid@gmail.com', 'gmail': 'mailto:abhisheksinghmailid@gmail.com',
+                        'about': '#about', 'education': '#education', 'skill': '#skills', 'project': '#projects',
+                        'blog': '#blog', 'research': '#research', 'book': '#books', 'tweet': '#tweets', 'gallery': '#gallery', 'photo': '#gallery',
+                        'contact': '#contact'
+                    };
+                    let handled = false;
+
+                    if (command.includes('who is abhishek') || command.includes('abhishek singh') || command.includes('tell me about abhishek')) {
+                        const aboutSection = document.getElementById('about');
+                        if (aboutSection) {
+                            const paragraphs = aboutSection.querySelectorAll('.text-gray-300 p');
+                            const aboutText = Array.from(paragraphs).map(p => p.textContent).join(' ');
+                            speak(aboutText);
+                            handled = true;
+                        }
+                    }
+
+                    if (!handled) {
+                        for (const key in commands) {
+                            if (command.includes(key)) {
+                                const target = commands[key];
+                                if (target.startsWith('http') || target.startsWith('mailto')) {
+                                    window.open(target, '_blank');
+                                } else {
+                                    document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+                                }
+                                handled = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!handled) { showStatus('Command not recognized.'); }
+                }
             }
         }
         
@@ -970,7 +1105,6 @@
             });
         });
 
-        // CHANGE 3 of 3: Added the new Profile Picture Click Handler script
         // --- Profile Picture Click Handler ---
         const profilePic = document.getElementById('profile-picture');
         if (profilePic) {
@@ -985,18 +1119,16 @@
                     }
                     return; 
                 }
-
                 isSwapping = true;
-                profilePic.src = altSrc; // Change to the new picture
-
+                profilePic.src = altSrc;
                 setTimeout(() => {
-                    profilePic.src = originalSrc; // Change back to the original picture
+                    profilePic.src = originalSrc;
                     isSwapping = false;
-                }, 2000); // 2000 milliseconds = 2 seconds
+                }, 2000);
             });
         }
     });
-    // === END OF THE MAIN SCRIPT ===
     </script>
 </body>
 </html>
+
