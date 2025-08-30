@@ -456,7 +456,6 @@
                 <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
                 <a href="#blog" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Blog</a>
                 <a href="#research" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Research</a>
-                <!-- NEW NAVIGATION LINK -->
                 <a href="#books" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Books</a>
                 <a href="#tweets" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Tweets</a>
                 <a href="#gallery" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Gallery</a>
@@ -507,7 +506,7 @@
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl">
                     <div class="flex-shrink-0">
                         <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <img id="profile-picture" src="My%20picture.png?raw=true" data-alt-src="image/Me%20with%20my%20guru.png" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
+                            <img id="profile-picture" src="https://github.com/Abhishek8ingh/Abhishek8ingh.github.io/blob/main/My%20picture.png?raw=true" data-alt-src="image/Me%20with%20my%20guru.png" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
                         </div>
                     </div>
                     <div class="text-center md:text-left">
@@ -598,11 +597,9 @@
                 <button class="carousel-btn prev" data-carousel="research-grid">&lt;</button>
                 <button class="carousel-btn next" data-carousel="research-grid">&gt;</button>
             </div>
-            <!-- UPDATED: Arrow now points to #books -->
             <a href="#books" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
-        <!-- NEW SECTION: Recommended Books -->
         <section id="books" class="section">
             <a href="#research" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Recommended Books</h2>
@@ -617,7 +614,6 @@
         </section>
 
         <section id="tweets" class="section">
-            <!-- UPDATED: Arrow now points to #books -->
             <a href="#books" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Tweets</h2>
             <div class="space-y-6 max-w-2xl w-full">
@@ -675,14 +671,13 @@
     </div>
     
     <div id="all-photos-modal" class="fixed top-0 left-0 w-full h-full bg-black/90 backdrop-blur-md z-[250] p-8 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-300">
-        <span id="all-photos-close-btn" class="absolute top-4 right-8 text-white text-5xl cursor-pointer">&times;</span>
+        <span id="all-photos-close-btn" class="close-btn absolute top-4 right-8 text-white text-5xl cursor-pointer">&times;</span>
         <h2 class="text-4xl font-bold text-white text-center mb-8">All Photos</h2>
         <div id="all-photos-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             <!-- Photos will be inserted here by JavaScript -->
         </div>
     </div>
 
-    <!-- NEW MODAL FOR BOOKS -->
     <div id="book-modal">
         <span class="close-btn">&times;</span>
         <div id="book-modal-content">
@@ -707,7 +702,7 @@
                 populateGrid('research-grid', data.research, createLinkedCard);
                 populateGrid('gallery-grid', data.gallery, createGalleryCard);
                 populateGrid('blog-grid', data.blogs, createLinkedCard);
-                populateGrid('books-grid', data.books, createBookCard); // <-- NEW
+                populateGrid('books-grid', data.books, createBookCard);
                 
                 populateAllPhotosGrid(data.gallery);
             })
@@ -726,7 +721,6 @@
             pink: 'hover:shadow-pink-500/20'
         };
 
-        // This function for other cards remains UNCHANGED
         function createLinkedCard(item) {
             return `
                 <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue}">
@@ -738,7 +732,6 @@
                 </a>`;
         }
         
-        // NEW: Card creator for the Books section
         function createBookCard(item) {
              return `
                 <div class="book-item bg-gray-900/50 border border-gray-700 rounded-lg backdrop-blur-sm overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${colorClasses[item.color] || colorClasses.blue} cursor-pointer" 
@@ -752,7 +745,6 @@
                 </div>`;
         }
 
-        // UPDATED: createGalleryCard function is the same as before
         function createGalleryCard(item) {
             const thumbnailUrl = item.imageUrl[0];
             const isMultiImage = item.imageUrl.length > 1;
@@ -768,7 +760,7 @@
                 </div>`;
         }
 
-        // --- Carousel Logic (UNCHANGED) ---
+        // --- Carousel Logic ---
         document.querySelectorAll('.carousel-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const carousel = document.getElementById(button.dataset.carousel);
@@ -786,7 +778,7 @@
             });
         });
 
-        // --- MODAL LOGIC (UPDATED to handle Books) ---
+        // --- Modal Logic ---
         const singleImageModal = document.getElementById('gallery-modal');
         const modalImage = document.getElementById('modal-image');
         const modalCaption = document.getElementById('modal-caption');
@@ -831,7 +823,6 @@
                 openBookModal(bookItem.dataset.title, bookItem.dataset.description, bookItem.dataset.imageUrl);
             }
 
-            // Close modals
             if (e.target.closest('.close-btn') || e.target === singleImageModal || e.target === allPhotosModal || e.target === bookModal) {
                 singleImageModal.classList.remove('visible');
                 allPhotosModal.classList.remove('visible');
@@ -871,8 +862,6 @@
                     <div class="caption-overlay">${img.caption}</div>
                 </div>`).join('');
         }
-
-        // --- ALL OF YOUR EXISTING SCRIPTS ARE PRESERVED BELOW ---
 
         // --- Interactive Starfield & Meteor Shower Script ---
         const canvas = document.getElementById('starfield');
@@ -977,12 +966,12 @@
             const statusEl = document.getElementById('assistant-status');
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             
-            let hasPlayedIntro = false; // Prevents intro from playing every time
+            let hasPlayedIntro = false;
 
             const speak = (text) => {
                 if ('speechSynthesis' in window && text) {
                     const utterance = new SpeechSynthesisUtterance(text);
-                    window.speechSynthesis.cancel(); // Stop any previous speech
+                    window.speechSynthesis.cancel();
                     window.speechSynthesis.speak(utterance);
                 }
             };
