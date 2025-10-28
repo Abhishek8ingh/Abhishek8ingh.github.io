@@ -112,13 +112,7 @@
 }
 ],
 "blogs": [
-{
-"title": "My First Blog..",
-"description": "I don't know how to write a blog, but I want to express the thoughts I never have before.",
-"imageUrl": "Bharat.webp",
-"link": "https://open.substack.com/pub/abhishek8ingh/p/my-first-blog?r=66l85i&utm_campaign=post&utm_medium=web",
-"color": "blue"
-},
+
 {
 "title": "If You Really Want a Change",
 "description": "A change for the whole country, not just for your own biases.",
