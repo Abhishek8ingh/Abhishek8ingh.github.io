@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Singh - Portfolio</title>
+    <title>Abhishek Singh - Portfolio | Software Engineer</title>
 
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#2c3440">
@@ -300,7 +300,6 @@
             line-height: 1;
         }
 
-        /* --- NEW STYLES FOR BOOK MODAL --- */
         #book-modal {
             position: fixed;
             top: 0;
@@ -396,7 +395,6 @@
             .text-4xl { font-size: 1.8rem; }
             .text-5xl { font-size: 2rem; }
         }
-        /* Style for the multi-image icon on a gallery card */
         .multi-image-icon {
             position: absolute;
             top: 0.75rem;
@@ -411,7 +409,6 @@
             color: white;
             pointer-events: none;
         }
-        /* Styles for the "All Photos" grid modal */
         #all-photos-modal.visible {
             opacity: 1;
             pointer-events: all;
@@ -445,12 +442,20 @@
     <canvas id="starfield"></canvas>
 
     <header class="bg-black/30 backdrop-blur-md">
-        <div class="w-full flex justify-between items-center px-8 sm:px-12 py-4">
-            <a href="#about" id="name-logo" class="text-2xl font-bold tracking-tight text-white h-10 flex items-center">
+        <div class="w-full flex justify-between items-center px-4 sm:px-8 py-4 gap-4">
+            <a href="#about" id="name-logo" class="text-xl md:text-2xl font-bold tracking-tight text-white h-10 flex items-center group whitespace-nowrap shrink-0">
                 <span id="name-text">Abhishek Singh</span>
+                <!-- Job Seeker Badge -->
+                <div class="ml-2 sm:ml-4 flex items-center gap-1.5 sm:gap-2 bg-green-500/10 border border-green-500/30 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-green-400 opacity-90 group-hover:opacity-100 transition-opacity">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="hidden sm:inline">Open to Work</span>
+                </div>
             </a>
-            <nav class="hidden md:flex items-center space-x-8 text-sm">
-                <a href="#about" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About Me</a>
+            <nav class="hidden md:flex items-center flex-wrap justify-end gap-x-3 lg:gap-x-5 gap-y-2 text-[11px] lg:text-sm">
+                <a href="#about" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">About</a>
                 <a href="#education" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Education</a>
                 <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Skills</a>
                 <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">Projects</a>
@@ -470,13 +475,17 @@
         <span class="block text-blue-400 mt-3 text-xs">Click to see more</span>
     </a>
 
+    <!-- Floating Quick Links -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        <a href="resume.pdf" target="_blank" title="Download Resume" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600/80 backdrop-blur-sm border border-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-all duration-300 transform hover:scale-110 shadow-lg shadow-blue-500/30">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+        </a>
         <a href="https://github.com/Abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-gray-600/50 transition-all duration-300 transform hover:scale-110">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
         <a href="https://x.com/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-500/50 transition-all duration-300 transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.602.75Zm-1.71 12.95h1.5l-7.25-8.875h-1.6l7.35 8.875Z"/></svg></a>
-        <a href="https://linkedin.com/in/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-orange-500/50 transition-all duration-300 transform hover:scale-110">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png" alt="LinkedIn Logo" class="w-7 h-7">
+        <a href="https://linkedin.com/in/abhishek8ingh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-blue-600/50 transition-all duration-300 transform hover:scale-110">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
         <a href="mailto:abhisheksinghmailid@gmail.com" class="w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full flex items-center justify-center text-white hover:bg-red-500/50 transition-all duration-300 transform hover:scale-110">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -493,28 +502,46 @@
     </div>
     <div id="assistant-status"></div>
 
+    <!-- Space Background -->
     <div class="background-ufo"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g><defs><radialGradient id="ufo-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style="stop-color:#D1D5DB;stop-opacity:1" /><stop offset="100%" style="stop-color:#6B7280;stop-opacity:1" /></radialGradient></defs></svg></div>
     <div class="background-ufo ufo-2"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
     <div class="background-ufo ufo-3"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
-    <div class="background-ufo ufo-4"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
-    <div class="background-ufo ufo-5"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
-    <div class="background-ufo ufo-6"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g><path d="M 30 100 C 30 120, 170 120, 170 100 C 170 80, 30 80, 30 100 Z" fill="url(#ufo-gradient)"/><path d="M 50 100 C 50 115, 150 115, 150 100 Z" fill="#4B5563"/><path d="M 70 85 C 70 60, 130 60, 130 85 Z" fill="#60A5FA" opacity="0.5"/><ellipse cx="100" cy="100" rx="60" ry="10" fill="#F59E0B" opacity="0.7"/></g></svg></div>
 
     <main>
+        <!-- YOU CAN CHANGE YOUR TEXT HERE! Look for the h2 and p tags below -->
         <section id="about" class="section">
             <div class="container mx-auto w-full h-full flex items-center justify-center relative z-10">
                 <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl">
-                    <div class="flex-shrink-0">
-                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
-                            <img id="profile-picture" src="image/Portfolio%20Image.png" data-alt-src="image/Me%20with%20my%20guru.png" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
+                    <div class="flex-shrink-0 relative">
+                        <!-- Profile Pic -->
+                        <div class="w-48 h-48 md:w-56 md:h-56 mx-auto rounded-lg overflow-hidden shadow-2xl shadow-blue-500/20 border-4 border-gray-700 relative z-10">
+                            <img id="profile-picture" src="image/Portfolio%20Image.png" data-alt-src="image/Me%20with%20my%20guru.png" alt="Abhishek Singh" class="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/224x224/0c0a18/E5E7EB?text=A.S.';">
                         </div>
                     </div>
+                    
+                    <!-- Recruiter-focused About Text -->
                     <div class="text-center md:text-left">
-                        <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
-                        <div class="text-gray-300 max-w-xl space-y-3 text-sm leading-relaxed">
-                            <p>Hi, I’m Abhishek Singh, a computer science student from India. I’m passionate about solving real-world problems—especially the ones that no one else is working on—using technology, AI, and innovation.</p>
-                            <p>For me, building things from the basics and taking them all the way to the top level is what I truly enjoy. I love understanding concepts from their deep roots to their highest applications.</p>
-                        
+                        <h2 class="text-4xl font-bold text-white mb-4">Hi, I'm Abhishek.</h2>
+                        <div class="text-gray-300 max-w-xl space-y-4 text-sm leading-relaxed">
+                            <p>I am a highly motivated Computer Science student (Class of 2025) based in India. I specialize in building scalable software, solving complex data-driven problems, and diving deep into Machine Learning and Full-Stack Development.</p>
+                            
+                            <p>Rather than just learning concepts, I thrive on taking ideas from their foundational roots all the way to production. I love solving the real-world problems that others shy away from.</p>
+                            
+                            <div class="mt-4 p-4 rounded-lg bg-blue-900/20 border border-blue-500/30 text-blue-100 flex gap-3 items-start text-left">
+                                <span class="text-xl">🚀</span>
+                                <p class="font-medium text-[15px]">I am actively looking for full-time Software Engineering / Data Science roles where I can bring immediate value to a dynamic team.</p>
+                            </div>
+                            
+                            <!-- Strong Call To Action for Job Hunting -->
+                            <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start">
+                                <a href="resume.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                                    View Resume
+                                </a>
+                                <a href="#projects" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 font-medium py-2.5 px-6 rounded-lg transition-all duration-300">
+                                    See My Work
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -522,6 +549,7 @@
             <a href="#education" class="scroll-arrow-down"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
         </section>
 
+        <!-- ADD NEW STARS HERE FOR EDUCATION IDEAS -->
         <section id="education" class="section">
             <a href="#about" class="scroll-arrow-up"><svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg></a>
             <h2 class="text-5xl font-bold text-white mb-12">Education Journey</h2>
@@ -691,9 +719,8 @@
     </div>
 
     <script>
-    // === START OF THE FINAL, INTEGRATED SCRIPT ===
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Dynamic Content Loading ---
+        // --- Dynamic Content Loading (USING FETCH PROPERLY FOR GITHUB!) ---
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
@@ -752,7 +779,7 @@
                      data-images='${JSON.stringify(item.imageUrl)}' 
                      data-caption="${item.caption}">
                     <img src="${thumbnailUrl}" class="w-full h-64 object-cover">
-                    ${isMultiImage ? `<div class="multi-image-icon"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 1v4m0 0h-4m4 0l-5-5" /></svg></div>` : ''}
+                    ${isMultiImage ? `<div class="multi-image-icon"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l-5-5m11 1v4m0 0h-4m4 0l-5-5" /></svg></div>` : ''}
                     <div class="p-4">
                         <p class="text-gray-300 text-sm">${item.caption}</p>
                     </div>
@@ -957,7 +984,7 @@
         nameLogo.addEventListener('mouseenter', () => showNamaste(2000));
         nameLogo.addEventListener('touchstart', (e) => { e.preventDefault(); showNamaste(2000); });
 
-        // --- Voice Assistant Script (UPDATED with Audio) ---
+        // --- Voice Assistant Script ---
         const assistantContainer = document.getElementById('assistant-container');
         if (assistantContainer) {
             const alienFace = document.getElementById('alien-face');
@@ -991,7 +1018,7 @@
                 const activateAssistant = () => {
                     if (isListening) return;
                     if (!hasPlayedIntro) {
-                        const introText = "Hello. I am the AI Assistant for this portfolio. You can ask me to navigate. For example, say 'go to skills' or 'open GitHub'. For a personal introduction, you can ask 'who is Abhishek Singh'.";
+                        const introText = "Hello. I am the AI Assistant. Abhishek is currently open to full-time roles. You can ask me to navigate to sections like skills or open GitHub. For a personal intro, ask 'who is Abhishek Singh'.";
                         speak(introText);
                         hasPlayedIntro = true;
                     }
@@ -1102,9 +1129,6 @@
 
             profilePic.addEventListener('click', () => {
                 if (isSwapping || !altSrc || altSrc === "YOUR_OTHER_PICTURE_URL_HERE") {
-                    if (altSrc === "YOUR_OTHER_PICTURE_URL_HERE") {
-                        console.warn("Reminder: Please replace the placeholder URL in the 'data-alt-src' attribute of your profile picture's img tag.");
-                    }
                     return; 
                 }
                 isSwapping = true;
@@ -1119,4 +1143,3 @@
     </script>
 </body>
 </html>
-
