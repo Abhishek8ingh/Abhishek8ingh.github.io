@@ -1,131 +1,131 @@
 {
-"projects": [
-  {
-"title": "Project Two",
-"description": "Coming Soon",
-"imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
-"link": "#",
-"color": "purple"
-},
-{
-"title": "Project Three",
-"description": "Coming Soon",
-"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
-"link": "#",
-"color": "pink"
-},
-{
-"title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
-"description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
-"imageUrl": "warehouse%20project%201.webp",
-"link": "Abhishek/Project-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
-"color": "blue"
-}
-
-],
-"research": [
-  {
-"title": "Research Paper Two",
-"description": "Coming Soon",
-"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
-"link": "#",
-"color": "purple"
-},
-{
-"title": "Research Paper Three",
-"description": "Coming Soon",
-"imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
-"link": "#",
-"color": "pink"
-},
-{
-"title": "Optimizing Supply Chain Logistics in Manufacturing to Increase Warehouse Efficiency Through Storage Optimization",
-"description": "This research focuses on optimizing supply chain logistics in manufacturing by improving warehouse efficiency through effective storage optimization.",
-"imageUrl": "assets/warehouse%20paper%201.webp",
-"link": "Abhishek/Paper-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
-"color": "blue"
-}
-
-],
-"books": [
-{
-  
-"_comment": "Post 2",
-"title": "coming soon",
-"description": ".............................",
-"imageUrl": "image/coming%20soon.jpeg",
-"color": "purple"
-},
-{
-  
-"_comment": "Post 3",
-"title": "coming soon",
-"description": ".............................",
-"imageUrl": "image/coming%20soon.jpeg",
-"color": "pink"
-},
-{
-
-"_comment": "Post 1",
-"title": "The Craft of Research",
-"description": "5th edition by by Wayne C. Booth (Author), Gregory G. Colomb (Author), Joseph M. Williams (Author), Joseph Bizup (Author), William T. FitzGerald (Author)  [Published by University of Chicago Press and ISBN 9780226826677], I will soon provide full discription after completing the book ",
-"imageUrl": "image/pic%20of%20the%20craft...png",
-"color": "blue"
-}
-
-],
-"gallery": [
-{
-"_comment": "Post 3",
-"imageUrl": [
-"image/coming%20soon.jpeg"
-],
-"caption": "Just a single photo.",
-"color": "blue"
-},
-{
-"_comment": "Post 1",
-"imageUrl": [
-"image/SILVER%20MEDAL.jpg"
-],
-"caption": "My one and only achievement in Kickboxing",
-"color": "blue"
-},
-{
-"_comment": "Post 2",
-"imageUrl": [
-"assets/College%20first%20exp.jpg?raw=true"
-],
-"caption": "This was my first practical in the first year of college.",
-"color": "blue"
-},
-
-{
-"_comment": "Post 4",
-"imageUrl": [
-"image/Pet%20dog%201.jpg",
-"image/Pet%20dog%202.jpg",
-"image/Pet%20dog%203.jpg"
-],
-"caption": "Uploaded to check this feature btw this is my pet name pumamessi",
-"color": "purple"
-}
-],
-"blogs": [
-
-{
-"title": "Soon",
-"description": "Coming Soon",
-"imageUrl": " image/coming%20soon.jpeg ",
-"link": ".................. ",
-"color": "purple"
-},
-{
-"title": "Soon",
-"description": "Coming Soon",
-"imageUrl": "image/coming%20soon.jpeg",
-"link": ".................",
-"color": "pink"
-}
-]
+  "projects": [
+    {
+      "title": "Project Two",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/8b5cf6?text=Project+Image",
+      "link": "#",
+      "color": "purple"
+    },
+    {
+      "title": "Project Three",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
+      "link": "#",
+      "color": "pink"
+    },
+    {
+      "title": "InventorySync: A Smart Dashboard for Warehouse Efficiency",
+      "description": "InventorySync is a smart dashboard that cleans, analyzes, and predicts warehouse data to improve inventory efficiency and demand forecasting.",
+      "imageUrl": "warehouse%20project%201.webp",
+      "link": "Abhishek/Project-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
+      "color": "blue"
+    }
+  ],
+  "research": [
+    {
+      "title": "Research Paper Two",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+      "link": "#",
+      "color": "purple"
+    },
+    {
+      "title": "Research Paper Three",
+      "description": "Coming Soon",
+      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Research+Image",
+      "link": "#",
+      "color": "pink"
+    },
+    {
+      "title": "Optimizing Supply Chain Logistics in Manufacturing to Increase Warehouse Efficiency Through Storage Optimization",
+      "description": "This research focuses on optimizing supply chain logistics in manufacturing by improving warehouse efficiency through effective storage optimization.",
+      "imageUrl": "assets/warehouse%20paper%201.webp",
+      "link": "Abhishek/Paper-%20InventorySync%20is%20a%20smart%20dashboard%20that%20cleans%2C%20analyzes%2C%20and%20predicts%20warehouse%20data%20to%20improve%20inventory%20efficiency%20and%20demand%20forecasting..pdf",
+      "color": "blue"
+    }
+  ],
+  "books": [
+    {
+      "_comment": "Post 2",
+      "title": "coming soon",
+      "description": ".............................",
+      "imageUrl": "image/coming%20soon.jpeg",
+      "color": "purple"
+    },
+    {
+      "_comment": "Post 3",
+      "title": "coming soon",
+      "description": ".............................",
+      "imageUrl": "image/coming%20soon.jpeg",
+      "color": "pink"
+    },
+    {
+      "_comment": "Post 1",
+      "title": "The Craft of Research",
+      "description": "5th edition by by Wayne C. Booth (Author), Gregory G. Colomb (Author), Joseph M. Williams (Author), Joseph Bizup (Author), William T. FitzGerald (Author)  [Published by University of Chicago Press and ISBN 9780226826677], I will soon provide full discription after completing the book ",
+      "imageUrl": "image/pic%20of%20the%20craft...png",
+      "color": "blue"
+    }
+  ],
+  "gallery": [
+    {
+      "_comment": "Post 3",
+      "imageUrl": [
+        "image/coming%20soon.jpeg"
+      ],
+      "caption": "Just a single photo.",
+      "color": "blue"
+    },
+    {
+      "_comment": "Post 1",
+      "imageUrl": [
+        "image/SILVER%20MEDAL.jpg"
+      ],
+      "caption": "My one and only achievement in Kickboxing",
+      "color": "blue"
+    },
+    {
+      "_comment": "Post 2",
+      "imageUrl": [
+        "assets/College%20first%20exp.jpg?raw=true"
+      ],
+      "caption": "This was my first practical in the first year of college.",
+      "color": "blue"
+    },
+    {
+      "_comment": "Post 4",
+      "imageUrl": [
+        "image/Pet%20dog%201.jpg",
+        "image/Pet%20dog%202.jpg",
+        "image/Pet%20dog%203.jpg"
+      ],
+      "caption": "Uploaded to check this feature btw this is my pet name pumamessi",
+      "color": "purple"
+    },
+    {
+      "_comment": "Post 5 - NEW UPDATE",
+      "imageUrl": [
+        "https://placehold.co/600x400/0c0a18/E5E7EB?text=New+Gallery+Image"
+      ],
+      "caption": "A new update about my work! You can replace the imageUrl above with your new photo.",
+      "color": "pink"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Soon",
+      "description": "Coming Soon",
+      "imageUrl": "image/coming%20soon.jpeg",
+      "link": ".................. ",
+      "color": "purple"
+    },
+    {
+      "title": "Soon",
+      "description": "Coming Soon",
+      "imageUrl": "image/coming%20soon.jpeg",
+      "link": ".................",
+      "color": "pink"
+    }
+  ]
 }
