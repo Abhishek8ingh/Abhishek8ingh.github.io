@@ -3,10 +3,11 @@
     "profileImage": "image/Portfolio Image.png",
     "altProfileImage": "image/Me with my guru.png",
     "resumeLink": "assets/Abhishek_Singh_Resume.pdf",
-    "greeting": "Hi, I'm Abhishek.",
-    "paragraph1": "I am a highly motivated Computer Science student (Class of 2025) based in India. I specialize in building scalable software, solving complex data-driven problems, and diving deep into Machine Learning and Full-Stack Development.",
-    "paragraph2": "Rather than just learning concepts, I thrive on taking ideas from their foundational roots all the way to production. I love solving the real-world problems that others shy away from.",
-    "highlightBox": "I am actively looking for full-time Software Engineering / Data Science roles where I can bring immediate value to a dynamic team."
+    "greeting": "Namaste, I’m Abhishek.",
+    "paragraph1": '''I’m a Computer Science student (Class of 2025) focused on Data Science, analytics, and building meaningful insights from real-world data.
+                  My work blends Python, SQL, visualization, and structured thinking not just to build models, but to understand patterns, ask better questions, and communicate decisions clearly.''',
+    "paragraph2": "Rather than chasing tools, I focus on mastering fundamentals data understanding, analytical thinking, and practical problem solving.",
+    "highlightBox": "🚀 Currently seeking full-time roles in Data Science / Analytics where I can turn raw data into clear decisions and impactful solutions."
   },
   "projects": [
     {
