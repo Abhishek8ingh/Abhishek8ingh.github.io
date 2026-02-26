@@ -6,7 +6,8 @@
     "greeting": "Namaste, I’m Abhishek.",
     "paragraph1": "I’m a Computer Science student (Class of 2025) focused on Data Science, analytics, and building meaningful insights from real-world data. My work blends Python, SQL, visualization, and structured thinking not just to build models, but to understand patterns, ask better questions, and communicate decisions clearly.",
     "paragraph2": "Rather than chasing tools, I focus on mastering fundamentals data understanding, analytical thinking, and practical problem solving.",
-    "highlightBox": "🚀 Currently seeking full-time roles in Data Science / Analytics where I can turn raw data into clear decisions and impactful solutions."
+    "highlightBox": "Driven to contribute in data-driven and problem-solving roles from analytics and machine learning to scalable software systems.
+"
   },
   "projects": [
     {
@@ -17,10 +18,10 @@
       "color": "purple"
     },
     {
-      "title": "Project Three",
-      "description": "Coming Soon",
-      "imageUrl": "https://placehold.co/600x400/0c0a18/ec4899?text=Project+Image",
-      "link": "#",
+      "title": "Ecommerce-Customer-Behavior-Analysis",
+      "description": "This project is a Power BI dashboard designed to analyze customer behavior in an e-commerce setting.",
+      "imageUrl": "Ecommerce-Customer-Behavior-Analysis/blob/main/image/ss.png?raw=true.png",
+      "link": "Ecommerce-Customer-Behavior-Analysis",
       "color": "pink"
     },
     {
