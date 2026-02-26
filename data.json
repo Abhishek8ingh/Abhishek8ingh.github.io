@@ -1,4 +1,13 @@
 {
+  "aboutMe": {
+    "profileImage": "image/Portfolio Image.png",
+    "altProfileImage": "image/Me with my guru.png",
+    "resumeLink": "resume.pdf",
+    "greeting": "Hi, I'm Abhishek.",
+    "paragraph1": "I am a highly motivated Computer Science student (Class of 2025) based in India. I specialize in building scalable software, solving complex data-driven problems, and diving deep into Machine Learning and Full-Stack Development.",
+    "paragraph2": "Rather than just learning concepts, I thrive on taking ideas from their foundational roots all the way to production. I love solving the real-world problems that others shy away from.",
+    "highlightBox": "I am actively looking for full-time Software Engineering / Data Science roles where I can bring immediate value to a dynamic team."
+  },
   "projects": [
     {
       "title": "Project Two",
@@ -84,32 +93,6 @@
       ],
       "caption": "My one and only achievement in Kickboxing",
       "color": "blue"
-    },
-    {
-      "_comment": "Post 2",
-      "imageUrl": [
-        "assets/College%20first%20exp.jpg?raw=true"
-      ],
-      "caption": "This was my first practical in the first year of college.",
-      "color": "blue"
-    },
-    {
-      "_comment": "Post 4",
-      "imageUrl": [
-        "image/Pet%20dog%201.jpg",
-        "image/Pet%20dog%202.jpg",
-        "image/Pet%20dog%203.jpg"
-      ],
-      "caption": "Uploaded to check this feature btw this is my pet name pumamessi",
-      "color": "purple"
-    },
-    {
-      "_comment": "Post 5 - NEW UPDATE",
-      "imageUrl": [
-        "https://placehold.co/600x400/0c0a18/E5E7EB?text=New+Gallery+Image"
-      ],
-      "caption": "A new update about my work! You can replace the imageUrl above with your new photo.",
-      "color": "pink"
     }
   ],
   "blogs": [
