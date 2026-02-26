@@ -78,23 +78,42 @@
     }
   ],
   "gallery": [
-    {
-      "_comment": "Post 3",
-      "imageUrl": [
-        "image/coming%20soon.jpeg"
-      ],
-      "caption": "Just a single photo.",
-      "color": "blue"
-    },
-    {
-      "_comment": "Post 1",
-      "imageUrl": [
-        "image/SILVER%20MEDAL.jpg"
-      ],
-      "caption": "My one and only achievement in Kickboxing",
-      "color": "blue"
-    }
-  ],
+{
+"_comment": "Post 3",
+"imageUrl": [
+"image/coming%20soon.jpeg"
+],
+"caption": "Just a single photo.",
+"color": "blue"
+},
+{
+"_comment": "Post 1",
+"imageUrl": [
+"image/SILVER%20MEDAL.jpg"
+],
+"caption": "My one and only achievement in Kickboxing",
+"color": "blue"
+},
+{
+"_comment": "Post 2",
+"imageUrl": [
+"assets/College%20first%20exp.jpg?raw=true"
+],
+"caption": "This was my first practical in the first year of college.",
+"color": "blue"
+},
+
+{
+"_comment": "Post 4",
+"imageUrl": [
+"image/Pet%20dog%201.jpg",
+"image/Pet%20dog%202.jpg",
+"image/Pet%20dog%203.jpg"
+],
+"caption": "Uploaded to check this feature btw this is my pet name pumamessi",
+"color": "purple"
+}
+],
   "blogs": [
     {
       "title": "Soon",
